@@ -4,6 +4,7 @@ var route = require('koa-route');
 var favicon = require('koa-favicon');
 var serve = require('koa-static');
 var winston = require('winston');
+var parse = require('co-body');
 var Mongorito = require('mongorito');
 var Model = Mongorito.Model;
 
@@ -37,7 +38,8 @@ app.use(serve('public', {
 
 // app.use(route.get('/', tables));
 
-app.use(route.get('/api/tables', tables));
+app.use(route.get('/api/tables', getTables));
+app.use(route.post('/api/tables', postTables));
 
 /*
 // insert Table Schema
@@ -107,7 +109,7 @@ class Table extends Model {
  * Get Tables
  */
 
-function *tables() {
+function *getTables() {
   // var getTables = function*() {
   //   var mPromise = Table.find().exec();
   //   yield mPromise;
@@ -130,10 +132,28 @@ function *tables() {
   // self.body = render('tables', { tables: tables });
 }
 
+function *postTables() {
+  // let table = new Table(this.params);
+  //
+  // yield table.save();
+  // this.body = getTables();
+  //
+
+  let post = new Table(yield parse(this));
+  winston.info(post);
+
+  // post.created_at = new Date;
+  // post.id = id;
+  yield post.save();
+  this.redirect('/');
+}
+
 /**
  * Connect to Mongo
  */
- Mongorito.connect('localhost/boardgamesresults');
+ // Mongorito.connect('localhost/boardgamesresults');
+ Mongorito.connect('mongodb://localhost/boardgamesresults');
+ //
 
 // mongoose.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
 

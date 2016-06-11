@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/GorlifSense/Board-Games-Results#readme",
   "dependencies": {
+    "bower": "^1.7.9",
+    "co-body": "^4.2.0",
     "co-views": "^2.1.0",
     "koa": "^1.2.0",
     "koa-favicon": "^1.2.1",
