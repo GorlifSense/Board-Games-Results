@@ -1,0 +1,63 @@
+.border{
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	text-align: center;
+}
+.date{
+	margin: -3px 0 10px 17px;
+}
+.mainD{
+	background-color: lightgrey;
+}
+.player-img{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin: 0px auto;
+	background-color: green;
+	border-radius: 10px;
+}
+.playerName{
+	margin:5px auto;
+	text-align: left;
+}
+.player-points{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin: 0px auto;
+	background-color: darkviolet;
+	color:white;
+	border-radius: 10px;
+	vertical-align: top;
+	line-height: 50px;	
+}
+.win{
+	background-color: white;
+	background-image: url(../images/crown.png);
+	background-size: cover; 
+}
+.player-block:first-of-type{
+	margin-left: 0px;
+}
+.player-block{
+	display: inline-block;
+	margin-left: 20px;
+	padding: 5px 5px;
+	background-color: white;
+}
+.button-div{
+	margin: 10px 10px 10px 30px;
+}
+.game-panel input[type=checkbox] + div{
+	max-height: 0px;
+	overflow: hidden;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-o-transition: .5s;
+}
+.game-panel input[type=checkbox]:checked + div{
+	max-height: 2400px;
+}
+
