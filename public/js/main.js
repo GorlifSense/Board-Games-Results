@@ -72,6 +72,7 @@
 			});
 			if(!error) {
 				console.log(object);
+				//$.post('/', object);
 			} else {
 				errorElement.className = "active";
 				errorElement.innerHTML = error;
