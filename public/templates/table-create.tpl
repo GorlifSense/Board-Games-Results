@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Create table</title>
-	<link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="../css/table-create.css"/>
-	<script src="../components/jquery/dist/jquery.min.js"></script>
-	<script src="../js/main.js"></script>
+	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/table-create.css"/>
+	<script src="components/jquery/dist/jquery.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<div class="container">
