@@ -60,4 +60,48 @@
 .game-panel input[type=checkbox]:checked + div{
 	max-height: 2400px;
 }
-
+.container{
+	margin: 10px 0 10px 20px ;
+}
+.raz{
+	text-align: center;
+}
+.container label:hover{
+	background-color: darkgrey;
+	border-color: darkgrey;
+}
+label[for="general"]{
+	background-color: black;
+	border-color: black;
+}
+label[for="war"]{
+	background-color: red;
+	border-color: red;
+}
+label[for="gold"]{
+	background-color: gold;
+	border-color: gold;
+}
+label[for="wonder"]{
+	background-color: gray;
+	border-color: gray;
+}
+label[for="culture"]{
+	background-color: blue;
+	border-color: blue;
+}
+label[for="trade"]{
+	background-color: orange;
+	border-color: orange;
+}
+label[for="guild"]{
+	background-color: darkviolet;
+	border-color: darkviolet;
+}
+label[for="sience"]{
+	background-color: green;
+	border-color: green;
+}
+.bor{
+	border:1px solid black;
+}
