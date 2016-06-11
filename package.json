@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Storing results for 7 Wonders",
   "main": "app.js",
+  "engines": {
+    "node": "6.2.1"
+  },
   "scripts": {
+    "start": "node app.js",
     "test": "mocha test"
   },
   "repository": {
@@ -21,6 +25,13 @@
   },
   "homepage": "https://github.com/GorlifSense/Board-Games-Results#readme",
   "dependencies": {
-    "koa": "^1.2.0"
+    "koa": "^1.2.0",
+    "koa-favicon": "^1.2.1",
+    "koa-static": "^2.0.0",
+    "mongoose": "^4.4.20",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
   }
 }
