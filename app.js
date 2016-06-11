@@ -30,17 +30,40 @@ app.use(serve('public', {
   maxage: 10000
 }));
 
+
+// insert dump data
 var Table = mongoose.model('Table', { description: String });
 
-var table = new Table({ description: 'Zildjian table for 1x1 players' });
+var table = new Table({
+  creationDate: new Date(),
+  description: 'Zildjian table for 1x1 players Dump data',
+  game: {
+    players: [{
+      name: 'Red Cat Evgeniy',
+      situation: {
+        military: -6,
+        gold: 8,
+        wonder: 3,
+        culture: 0,
+        trade: 6,
+        guild: 5,
+        science: 36
+      },
+      city: {
+        name: 'Sparta'
+        side: 'A'
+      }
+    }]
+  });
+
 table.save(function (err) {
   if (err) {
     winston.error(err);
   } else {
-    winston.info('meow');
+    winston.info('meow added');
   }
 });
 
-mongoose.connect(process.env.PORT || 'mongodb://localhost/boardgamesresults');
+mongoose.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
 
 app.listen(process.env.PORT || 3000);
