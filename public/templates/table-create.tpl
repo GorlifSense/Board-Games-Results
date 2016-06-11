@@ -118,6 +118,11 @@
 		 			</div>
 		 		</div>
 		 	</label>
+		 	<div class="row">
+		 		<div class="col-md-12">
+		 			<div id="error"></div>
+		 		</div>
+		 	</div>
 		 	<div class="row controls">
 		 		<div class="col-md-12">
 		 			<button id="confirm-table" class="btn btn-success">Confirm</button>

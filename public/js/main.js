@@ -14,6 +14,8 @@
 		};
 		var playerForm = getE('.player-none')[0];
 		var addPlayer = getE('#add-player');
+		var submitButton = getE('#confirm-table');
+		// Player add function
 		addPlayer.addEventListener('click', function(){
 			var players = getE('.player');
 			var newPlayer = playerForm.cloneNode(true);
@@ -35,5 +37,46 @@
 			var controls = getE('.controls')[0];
 			players[0].parentNode.insertBefore(newPlayer, controls);
 		});
+
+		// Form submit function
+		function collectForm(){
+			var players = getE('.player');
+			var object = Object.create(null);
+			var error = null;
+			var errorElement = getE('#error');
+			function collect(nodeCollection, object){
+				Array.prototype.forEach.call(nodeCollection, function(node){
+					if(node.name && node.value && node.value != ""){
+						object[node.name] = node.value;
+					} else if(node.value == "") {
+						if(!error){
+							error = "Fill all required fields first."
+						}
+						node.className += " invalid";
+						if(node.className.indexOf('nodeInvalidRemoveFunction') < 0){
+							node.className += " nodeInvalidRemoveFunction";
+							node.addEventListener('click', function(){
+								this.className = this.className.replace(/\s?invalid/,"");
+								errorElement.className = '';
+							});
+						}
+					}
+				});
+			}
+			Array.prototype.forEach.call(players, function(player, index){
+				var select = player.getElementsByTagName('select');
+				var inputs = player.getElementsByTagName('input');
+				object['player-'+index] = {};
+				collect(select, object['player-'+index]);
+				collect(inputs, object['player-'+index]);
+			});
+			if(!error) {
+				console.log(object);
+			} else {
+				errorElement.className = "active";
+				errorElement.innerHTML = error;
+			}
+		}
+		submitButton.addEventListener('click', collectForm);
 	});
 })();
