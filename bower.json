@@ -1,0 +1,26 @@
+{
+  "name": "board-games-results",
+  "description": "Storing results for 7 Wonders",
+  "main": "public/js/main.js",
+  "authors": [
+    "Gorlif Sense <git@gorlifsense.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "board",
+    "games"
+  ],
+  "homepage": "https://github.com/GorlifSense/Board-Games-Results",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
