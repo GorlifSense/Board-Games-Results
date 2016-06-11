@@ -20,16 +20,13 @@ app.use(function *(next){
   var start = new Date;
   yield next;
   var ms = new Date - start;
-  winston.debug('%s %s - %s', this.method, this.url, ms);
+  winston.debug('%s %s - %s', this.method, this.status, this.url, ms);
 });
 
 // response
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(serve('public'));
-
-//
-// app.use(function *(){
-//   this.body = 'Hello World';
-// });
+app.use(serve('public', {
+  maxage: 10000
+}));
 
 app.listen(3000);

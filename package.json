@@ -26,5 +26,8 @@
     "koa-favicon": "^1.2.1",
     "koa-static": "^2.0.0",
     "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
   }
 }
