@@ -64,34 +64,35 @@ input[type=number] {
 	opacity: 1;
 }
 @-webkit-keyframes playerAppear {
-	from {padding:0 10px;max-height: 0px;opacity: 0;}
-	to {padding:10px;max-height:300px;opacity: 1;}
+	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @-o-keyframes playerAppear {
-	from {padding:0 10px;max-height: 0px;opacity: 0;}
-	to {padding:10px;max-height:300px;opacity: 1;}
+	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @-moz-keyframes playerAppear {
-	from {padding:0 10px;max-height: 0px;opacity: 0;}
-	to {padding:10px;max-height:300px;opacity: 1;}
+	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @keyframes playerAppear {
-	from {padding:0 10px;max-height: 0px;opacity: 0;}
-	to {padding:10px;max-height:300px;opacity: 1;}
+	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
+
 @-webkit-keyframes playerFade {
-	from {padding:10px;max-height:300px;opacity: 1;}
-	to {padding:0 10px;max-height: 0px;opacity: 0;}
+	from {border-width:1px;margin: 10px 20px 10px 0;padding:10px;max-height:300px;opacity: 1;overflow:visible;}
+	to {border-width:0px;margin:0px 20px 0px 0;padding:0 10px;max-height: 0px;opacity: 0;overflow:hidden;}
 }
 @-o-keyframes playerFade {
-	from {padding:10px;max-height:300px;opacity: 1;}
-	to {padding:0 10px;max-height: 0px;opacity: 0;}
+	from {border-width:1px;margin: 10px 20px 10px 0;padding:10px;max-height:300px;opacity: 1;overflow:visible;}
+	to {border-width:0px;margin:0px 20px 0px 0;padding:0 10px;max-height: 0px;opacity: 0;overflow:hidden;}
 }
 @-moz-keyframes playerFade {
-	from {padding:10px;max-height:300px;opacity: 1;}
-	to {padding:0 10px;max-height: 0px;opacity: 0;}
+	from {border-width:1px;margin: 10px 20px 10px 0;padding:10px;max-height:300px;opacity: 1;overflow:visible;}
+	to {border-width:0px;margin:0px 20px 0px 0;padding:0 10px;max-height: 0px;opacity: 0;overflow:hidden;}
 }
 @keyframes playerFade {
-	from {padding:10px;max-height:300px;opacity: 1;}
-	to {padding:0 10px;max-height: 0px;opacity: 0;}
+	from {border-width:1px;margin: 10px 20px 10px 0;padding:10px;max-height:300px;opacity: 1;overflow:visible;}
+	to {border-width:0px;margin:0px 20px 0px 0;padding:0 10px;max-height: 0px;opacity: 0;overflow:hidden;}
 }
