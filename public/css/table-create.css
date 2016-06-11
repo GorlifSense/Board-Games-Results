@@ -1,0 +1,71 @@
+.player-none {
+	display: none;
+}
+#add-player {
+	margin-right:20px;
+}
+input.invalid {
+    border-color: #E96666;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(173,0,0,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(173,0,0,.6);
+}
+input[type=number] {
+	padding:6px !important;
+}
+.player {
+	position: relative;
+    background-color: #F5F5F5;
+    margin: 10px 20px 10px 0px;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    animation:playerAppear .5s ease-in-out;
+    -webkit-animation:playerAppear 1s ease-in-out;
+    -moz-animation:playerAppear 1s ease-in-out;
+    -o-animation:playerAppear 1s ease-in-out;
+}
+.player .remove-player {
+	position: absolute;
+    right: -45px;
+    top: -1px;
+    opacity: 0;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+}
+.player:hover .remove-player {
+	opacity: 1;
+}
+@-webkit-keyframes playerAppear {
+	from {padding:0 10px;max-height: 0px;opacity: 0;}
+	to {padding:10px;max-height:300px;opacity: 1;}
+}
+@-o-keyframes playerAppear {
+	from {padding:0 10px;max-height: 0px;opacity: 0;}
+	to {padding:10px;max-height:300px;opacity: 1;}
+}
+@-moz-keyframes playerAppear {
+	from {padding:0 10px;max-height: 0px;opacity: 0;}
+	to {padding:10px;max-height:300px;opacity: 1;}
+}
+@keyframes playerAppear {
+	from {padding:0 10px;max-height: 0px;opacity: 0;}
+	to {padding:10px;max-height:300px;opacity: 1;}
+}
+@-webkit-keyframes playerFade {
+	from {padding:10px;max-height:300px;opacity: 1;}
+	to {padding:0 10px;max-height: 0px;opacity: 0;}
+}
+@-o-keyframes playerFade {
+	from {padding:10px;max-height:300px;opacity: 1;}
+	to {padding:0 10px;max-height: 0px;opacity: 0;}
+}
+@-moz-keyframes playerFade {
+	from {padding:10px;max-height:300px;opacity: 1;}
+	to {padding:0 10px;max-height: 0px;opacity: 0;}
+}
+@keyframes playerFade {
+	from {padding:10px;max-height:300px;opacity: 1;}
+	to {padding:0 10px;max-height: 0px;opacity: 0;}
+}
