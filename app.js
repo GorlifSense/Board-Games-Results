@@ -41,6 +41,8 @@ app.use(serve('public', {
 app.use(route.get('/api/tables', getTables));
 app.use(route.post('/api/tables', postTables));
 
+app.use(route.get('/create', createTable));
+
 /*
 // insert Table Schema
 var Table = mongoose.model('Table', {
@@ -146,6 +148,11 @@ function *postTables() {
   // post.id = id;
   yield post.save();
   this.redirect('/');
+}
+
+function *createTable() {
+  let tables = yield Table.all();
+  this.body =  render('create', { tables: tables });
 }
 
 /**
