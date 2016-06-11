@@ -72,7 +72,7 @@
 			});
 			if(!error) {
 				console.log(object);
-				//$.post('/', object);
+				$.post('/api/tables', object);
 			} else {
 				errorElement.className = "active";
 				errorElement.innerHTML = error;

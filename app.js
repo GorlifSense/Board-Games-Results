@@ -1,9 +1,14 @@
 var koa = require('koa');
 var app = koa();
-var winston = require('winston');
+var route = require('koa-route');
 var favicon = require('koa-favicon');
 var serve = require('koa-static');
-var mongoose = require('mongoose');
+var winston = require('winston');
+var parse = require('co-body');
+var Mongorito = require('mongorito');
+var Model = Mongorito.Model;
+
+var render = require('./render');
 
 // logger
 var LOG_LEVEL = 'debug';
@@ -24,47 +29,52 @@ app.use(function *(next){
   winston.debug('%s %s - %s', this.method, this.status, this.url, ms);
 });
 
+
 // response
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(serve('public', {
   maxage: 10000
 }));
 
+app.use(route.get('/api/tables', getTables));
+app.use(route.post('/api/tables', postTables));
 
-// insert dump data
-var Table = mongoose.model('Table', { description: String });
+app.use(route.get('/create', createTable));
 
-var table = new Table({
-  creationDate: new Date(),
-  description: 'Zildjian table for 1x1 players Dump data',
-  game: {
-    players: [{
-      name: 'Red Cat Evgeniy',
-      situation: {
-        military: -6,
-        gold: 8,
-        wonder: 3,
-        culture: 0,
-        trade: 6,
-        guild: 5,
-        science: 36
-      },
-      city: {
-        name: 'Sparta',
-        side: 'A'
-      }
-    }]
-  }
-});
+// insert Table Schema
 
-table.save(function (err) {
-  if (err) {
-    winston.error(err);
-  } else {
-    winston.info('meow added');
-  }
-});
+class Table extends Model {
 
-mongoose.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
+}
+
+// route definitions
+
+/**
+ * Get Tables
+ */
+
+function *getTables() {
+  let tables = yield Table.all();
+  this.body =  render('tables', { tables: tables });
+}
+
+function *postTables() {
+
+  let post = new Table(yield parse(this));
+  winston.info(post);
+
+  yield post.save();
+  this.redirect('/');
+}
+
+function *createTable() {
+  let tables = yield Table.all();
+  this.body =  render('create', { tables: tables });
+}
+
+/**
+ * Connect to Mongo
+ */
+Mongorito.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
 
 app.listen(process.env.PORT || 3000);
