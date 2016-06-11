@@ -1,9 +1,13 @@
 var koa = require('koa');
 var app = koa();
-var winston = require('winston');
+var route = require('koa-route');
 var favicon = require('koa-favicon');
 var serve = require('koa-static');
-var mongoose = require('mongoose');
+var winston = require('winston');
+var Mongorito = require('mongorito');
+var Model = Mongorito.Model;
+
+var render = require('./render');
 
 // logger
 var LOG_LEVEL = 'debug';
@@ -24,17 +28,43 @@ app.use(function *(next){
   winston.debug('%s %s - %s', this.method, this.status, this.url, ms);
 });
 
+
 // response
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(serve('public', {
   maxage: 10000
 }));
 
+// app.use(route.get('/', tables));
 
-// insert dump data
-var Table = mongoose.model('Table', { description: String });
+app.use(route.get('/api/tables', tables));
 
-var table = new Table({
+/*
+// insert Table Schema
+var Table = mongoose.model('Table', {
+  creationDate: Date,
+  description: String,
+  game: {
+    players: [{
+      name: String,
+      situation: {
+        military: Number,
+        gold: Number,
+        wonder: Number,
+        culture: Number,
+        trade: Number,
+        guild: Number,
+        science: Number
+      },
+      city: {
+        name: String,
+        side: String
+      }
+    }]
+  }
+});
+
+var tableData = new Table({
   creationDate: new Date(),
   description: 'Zildjian table for 1x1 players Dump data',
   game: {
@@ -57,14 +87,54 @@ var table = new Table({
   }
 });
 
-table.save(function (err) {
+
+tableData.save(function (err) {
   if (err) {
     winston.error(err);
   } else {
     winston.info('meow added');
   }
 });
+*/
 
-mongoose.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
+class Table extends Model {
+
+}
+
+// route definitions
+
+/**
+ * Get Tables
+ */
+
+function *tables() {
+  // var getTables = function*() {
+  //   var mPromise = Table.find().exec();
+  //   yield mPromise;
+  // }
+  let tables = yield Table.all();
+  this.body =  render('tables', { tables: tables });
+
+  //
+  // let tablesData = new Table();
+  // var self = this;
+  // var callback = function (err, tables) {
+  //   if (err) {
+  //     winston.error(err);
+  //     // yield next;
+  //   }
+  //   winston.info(tables);
+  // }
+  // let tablesPromise = yield Table.findOne();
+  // winston.debug(tables);
+  // self.body = render('tables', { tables: tables });
+}
+
+/**
+ * Connect to Mongo
+ */
+ Mongorito.connect('localhost/boardgamesresults');
+
+// mongoose.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
 
 app.listen(process.env.PORT || 3000);
