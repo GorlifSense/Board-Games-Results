@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Create table</title>
-	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/table-create.css"/>
-	<script src="components/jquery/dist/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../css/table-create.css"/>
+	<script src="../components/jquery/dist/jquery.min.js"></script>
+	<script src="../js/main.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -45,23 +45,23 @@
 		 			</div>
 		 			<div class="col-md-1 form-group">
 		 				<label for="">desc</label>
-		 				<input type="number" min="0" value="0" name="military" class="form-control"/>
+		 				<input type="number" min="0" value="0" name="wonder" class="form-control"/>
 		 			</div>
 		 			<div class="col-md-1 form-group">
 		 				<label for="">desc</label>
-		 				<input type="number" min="0" value="0" name="military" class="form-control"/>
+		 				<input type="number" min="0" value="0" name="culture" class="form-control"/>
 		 			</div>
 		 			<div class="col-md-1 form-group">
 		 				<label for="">desc</label>
-		 				<input type="number" min="0" value="0" name="military" class="form-control"/>
+		 				<input type="number" min="0" value="0" name="trade" class="form-control"/>
 		 			</div>
 		 			<div class="col-md-1 form-group">
 		 				<label for="">desc</label>
-		 				<input type="number" min="0" value="0" name="military" class="form-control"/>
+		 				<input type="number" min="0" value="0" name="guild" class="form-control"/>
 		 			</div>
 		 			<div class="col-md-1 form-group">
 		 				<label for="">desc</label>
-		 				<input type="number" min="0" value="0" name="military" class="form-control"/>
+		 				<input type="number" min="0" value="0" name="science" class="form-control"/>
 		 			</div>
 		 		</div>
 		 	</label>
