@@ -3,6 +3,7 @@ var app = koa();
 var winston = require('winston');
 var favicon = require('koa-favicon');
 var serve = require('koa-static');
+var mongoose = require('mongoose');
 
 // logger
 var LOG_LEVEL = 'debug';
@@ -29,4 +30,17 @@ app.use(serve('public', {
   maxage: 10000
 }));
 
-app.listen(3000);
+var Table = mongoose.model('Table', { description: String });
+
+var table = new Table({ description: 'Zildjian table for 1x1 players' });
+table.save(function (err) {
+  if (err) {
+    winston.error(err);
+  } else {
+    winston.info('meow');
+  }
+});
+
+mongoose.connect(process.env.PORT || 'mongodb://localhost/boardgamesresults');
+
+app.listen(process.env.PORT || 3000);
