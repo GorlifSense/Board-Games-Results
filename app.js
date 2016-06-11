@@ -50,11 +50,12 @@ var table = new Table({
         science: 36
       },
       city: {
-        name: 'Sparta'
+        name: 'Sparta',
         side: 'A'
       }
     }]
-  });
+  }
+});
 
 table.save(function (err) {
   if (err) {
