@@ -230,8 +230,8 @@ rules:
   no-confusing-arrow: 1
 
   quote-props:
-    - "error"
-    - "as-needed"
+    - 2
+    - as-needed
     -
       keywords: true
       unnecessary: false
