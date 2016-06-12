@@ -5,6 +5,10 @@ engines:
     config:
       languages:
       - javascript
+  csslint:
+    enabled: true
+  markdownlint:
+    enabled: true
   eslint:
     enabled: true
     checks:
@@ -12,9 +16,16 @@ engines:
         enabled: false
   fixme:
     enabled: true
+    config:
+      strings:
+      - FIXME
+      - TODO
+      - XXX
 ratings:
   paths:
   - "**.js"
   - "**.jsx"
+  - "**.css"
+  - "**.md"
 exclude_paths:
 - test/

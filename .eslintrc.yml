@@ -1,5 +1,6 @@
 root: true
 env:
+  jquery: true
   commonjs: true
   es6: true
   mocha: true
@@ -191,9 +192,6 @@ rules:
   prefer-spread: 1
   prefer-template: 1
   require-yield: 1
-
-
-
 
   # Other - hand typed:
   indent:
