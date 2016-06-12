@@ -1,1 +1,8 @@
-{{ tables }}
+<p>You have <strong>{{ tables.length }}</strong> tables!</p>
+
+{% for table in tables %}
+<li>
+     <p>{{ table.attributes.description }}</p>
+</li>
+
+{% endfor %}

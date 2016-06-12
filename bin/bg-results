@@ -2,25 +2,36 @@
 
 'use strict';
 
-const App = require('../app');
+const app = require('../app');
 const winston = require('winston');
-require('dotenv').config();
-
-const DEFAULT_PORT = 3001;
-const PORT = process.env.PORT || DEFAULT_PORT;
-
-const DEFAULT_MONGO = 'mongodb://localhost/boardgamesresults';
-const MONGO = process.env.PORT || DEFAULT_MONGO;
+const dotenv = require('dotenv');
+const LOG_LEVEL = 'debug';
 
 // configure winston
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, {
   colorize: true,
-  level: 'debug',
+  level: LOG_LEVEL,
   prettyPrint: true,
   humanReadableUnhandledException: true
 });
 
+try {
+
+  dotenv.config();
+
+} catch (error) {
+
+  winston.error('Create .env file to add you environment variables');
+
+}
+
+const DEFAULT_PORT = 3001;
+const PORT = process.env.PORT || DEFAULT_PORT;
+
+const DEFAULT_MONGO = 'mongodb://localhost/boardgamesresults';
+const MONGO = process.env.MONGO || DEFAULT_MONGO;
+
 winston.info('Launching standalone server on', PORT);
 
-App(PORT);
+app(PORT, MONGO);

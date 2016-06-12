@@ -1,5 +1,8 @@
 'use strict';
 
+// TODO TURN ON ESLINT by removing disabled:
+/* eslint-disable */
+
 (function () {
 
 	document.addEventListener('DOMContentLoaded', function () {
@@ -107,7 +110,9 @@
 			});
 			if (!error) {
 				//console.log(object);
-				$.post('/api/tables', object);
+
+				// NOTE: in version v0.0.1 simple HTML POST will do fine
+				$.post('/tables', object);
 			} else {
 				errorElement.className = "active";
 				errorElement.innerHTML = error;

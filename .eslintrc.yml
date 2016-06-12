@@ -6,10 +6,11 @@ env:
   node: true
   browser: true
 extends: 'eslint:recommended'
+ecmaVersion: 6
 ecmaFeatures:
   impliedStrict: true
   modules: false
-  jsx: false
+  jsx: true
 rules:
   # Possible Errors
   comma-dangle: [2, never]
@@ -157,7 +158,7 @@ rules:
   no-underscore-dangle: 1
   no-unneeded-ternary: 1
   object-curly-spacing: 1
-  one-var: 1
+  one-var: 0
   operator-assignment: 1
   operator-linebreak: 1
   padded-blocks: 1
@@ -228,4 +229,9 @@ rules:
     - 1
   no-confusing-arrow: 1
 
-  quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]
+  quote-props:
+    - "error"
+    - "as-needed"
+    -
+      keywords: true
+      unnecessary: false

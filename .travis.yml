@@ -5,6 +5,7 @@ before_script:
   - npm run coverage
 after_script:
   - npm run codeclimate
+  - npm run bithound
 notifications:
   slack:
     rooms:

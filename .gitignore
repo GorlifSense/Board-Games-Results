@@ -41,3 +41,6 @@ public/components
 
 # OS specific
 .DS_Store
+
+# Env variables file
+.env
