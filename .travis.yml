@@ -1,8 +1,12 @@
 language: node_js
-sudo: false
 node_js:
   - "6"
 before_script:
-  - nohup npm start >> server.log &
+  - npm run coverage
 after_script:
-  - cat server.log
+  - npm run codeclimate
+notifications:
+  slack:
+    rooms:
+      weirdunicorn:zYbooEy22vfBloHorKZV5XPE#development
+    on_success: change

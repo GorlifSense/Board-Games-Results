@@ -1,0 +1,4 @@
+extends: "./../.eslintrc.yml"
+rules:
+  no-func-assign: 1
+  no-redeclare: 1
