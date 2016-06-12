@@ -1,8 +1,31 @@
-<p>You have <strong>{{ tables.length }}</strong> tables!</p>
+{% extends 'layout.html' %}
 
-{% for table in tables %}
-<li>
-     <p>{{ table.attributes.description }}</p>
-</li>
+{% block title %}Tables{% endblock %}
 
-{% endfor %}
+{% block content %}
+  <h1>Tables</h1>
+  <p>You have <strong>{{ tables.length }}</strong> tables!</p>
+  <p><a href="/create.html">Create a Table</a></p>
+  <div class="panel panel-default">
+    <div class="panel-heading">7 Wonders</div>
+        {% for table in tables %}
+        <div class="panel-body">
+          <div class="date">{{ table.attributes.description }}</div>
+          <div class="panel panel-default game-panel">
+            <div class="panel-body mainD">
+              <div class="row">
+                  {% for player in table.attributes.game.players %}
+                  <div class="border player-block">
+                    <div class="playerName">{{  player.name  }}</div>
+                    <div class="player-img"></div>
+                    <div class="player-points">{{  player.situation  }}</div>
+                  </div>
+                  {% endfor %}
+              </div>
+           </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
