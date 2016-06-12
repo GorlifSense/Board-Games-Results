@@ -161,17 +161,13 @@ rules:
   operator-assignment: 1
   operator-linebreak: 1
   padded-blocks: 1
-  quote-props: 1
   require-jsdoc: 1
   semi-spacing: 1
   sort-vars: 1
-  space-after-keywords: 1
   space-before-blocks: 1
   space-before-function-paren: 1
-  space-before-keywords: 1
   space-in-parens: 1
   space-infix-ops: 1
-  space-return-throw-case: 1
   space-unary-ops: 1
   spaced-comment: 1
   wrap-regex: 1
@@ -182,7 +178,6 @@ rules:
   arrow-spacing: 1
   constructor-super: 1
   generator-star-spacing: 1
-  no-arrow-condition: 1
   no-class-assign: 1
   no-const-assign: 1
   no-dupe-class-members: 1
@@ -201,7 +196,7 @@ rules:
 
   # Other - hand typed:
   indent:
-    - 2
+    - 1
     - 2
   linebreak-style:
     - 2
@@ -228,3 +223,9 @@ rules:
     - 1
   callback-return:
     - 1
+  keyword-spacing:
+    # TODO change to 2
+    - 1
+  no-confusing-arrow: 1
+
+  quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]

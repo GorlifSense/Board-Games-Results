@@ -1,3 +1,7 @@
+'use strict';
+
+var path = require('path');
+
 /**
  * Views.
  */
@@ -7,6 +11,6 @@
 // setup views mapping .html
 // to the swig template engine
 
-module.exports = views(__dirname + '/views', {
+module.exports = views(path.join(__dirname, '/views'), {
   map: { html: 'swig' }
 });

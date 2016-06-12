@@ -1,3 +1,5 @@
+'use strict';
+
 var koa = require('koa');
 var app = koa();
 var route = require('koa-route');
@@ -16,10 +18,10 @@ var LOG_LEVEL = 'debug';
 winston.remove(winston.transports.Console);
 // add new with Console-logger settings
 winston.add(winston.transports.Console, {
-    colorize: true,
-    level: LOG_LEVEL,
-    prettyPrint: true,
-    humanReadableUnhandledException: true
+  colorize: true,
+  level: LOG_LEVEL,
+  prettyPrint: true,
+  humanReadableUnhandledException: true
 });
 
 app.use(function *(next){
@@ -31,7 +33,7 @@ app.use(function *(next){
 
 
 // response
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon('public/favicon.ico'));
 app.use(serve('public', {
   maxage: 10000
 }));
@@ -61,7 +63,7 @@ function *getTables() {
 function *postTables() {
 
   let post = new Table(yield parse(this));
-  winston.info(post);
+  winston.debug(post);
 
   yield post.save();
   this.redirect('/');
@@ -73,8 +75,9 @@ function *createTable() {
 }
 
 /**
- * Connect to Mongo
+ * Connect to Mongo and start app listening to port
  */
-Mongorito.connect(process.env.MONGO || 'mongodb://localhost/boardgamesresults');
-
-app.listen(process.env.PORT || 3000);
+module.exports = function startServer (PORT, MONGO) {
+  Mongorito.connect(MONGO);
+  app.listen(PORT);
+};
