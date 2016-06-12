@@ -38,3 +38,6 @@ jspm_packages
 
 #ignore Bower components
 public/components
+
+# OS specific
+.DS_Store

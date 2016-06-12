@@ -1,7 +1,7 @@
 {
   "name": "board-games-results",
   "version": "0.0.1",
-  "description": "Storing results for 7 Wonders",
+  "description": "Web app for storing results for 7 Wonders",
   "main": "app.js",
   "engines": {
     "node": "6.2.1"
@@ -9,17 +9,31 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
     "start": "node app.js",
-    "test": "mocha test"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "mocha": "./node_modules/.bin/mocha",
+    "beautify": "./node_modules/.bin/js-beautify",
+    "unstaged": "git status --porcelain",
+    "codeclimate": "./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec",
+    "coveragereport": "open coverage/lcov-report/index.html",
+    "eslint": "./node_modules/.bin/eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GorlifSense/Board-Games-Results.git"
   },
   "keywords": [
-    "board",
-    "games"
+    "board games",
+    "games",
+    "webtool"
   ],
-  "author": "Gorlif Sense <git@gorlifsense.com>",
+  "private": true,
+  "author": "Gorlif Sense <git@gorlifsense.com> (http://gorlifsense.com)",
+  "contributors": [
+    "Glib Ischenko <glib@gorlifsense.com> (http://fleischer.gorlifsense.com)",
+    "Belrestro",
+    "SolarLumenar"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/GorlifSense/Board-Games-Results/issues"
@@ -39,6 +53,13 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "mocha": "^2.5.3"
-  }
+    "eslint": "^2.12.0",
+    "mocha": "^2.5.3",
+    "pre-commit": "^1.1.3"
+  },
+  "pre-commit": [
+    "eslint",
+    "test",
+    "unstaged"
+  ]
 }

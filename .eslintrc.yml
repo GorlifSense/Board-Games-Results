@@ -1,0 +1,230 @@
+root: true
+env:
+  commonjs: true
+  es6: true
+  mocha: true
+  node: true
+  browser: true
+extends: 'eslint:recommended'
+ecmaFeatures:
+  impliedStrict: true
+  modules: false
+  jsx: false
+rules:
+  # Possible Errors
+  comma-dangle: [2, never]
+  no-cond-assign: 2
+  no-console: 2
+  no-constant-condition: 2
+  no-control-regex: 2
+  no-dupe-args: 2
+  no-dupe-keys: 2
+  no-duplicate-case: 2
+  no-empty: 2
+  no-empty-character-class: 2
+  no-ex-assign: 2
+  no-extra-boolean-cast: 2
+  no-extra-semi: 2
+  no-func-assign: 2
+
+  no-extra-parens: 1
+  no-inner-declarations: [2, functions]
+  no-invalid-regexp: 2
+  no-irregular-whitespace: 2
+  no-negated-in-lhs: 2
+  no-obj-calls: 2
+  no-regex-spaces: 2
+  no-sparse-arrays: 2
+  no-unexpected-multiline: 2
+  no-unreachable: 2
+  use-isnan: 2
+  valid-typeof: 2
+
+  # Best Practices
+  accessor-pairs: 2
+  block-scoped-var: 1
+  complexity: [2, 6]
+  consistent-return: 1
+  default-case: 1
+  dot-location: 1
+  dot-notation: 1
+  guard-for-in: 2
+  no-alert: 2
+  no-caller: 2
+  no-case-declarations: 2
+  no-div-regex: 2
+  no-else-return: 1
+  no-empty-pattern: 2
+  no-eq-null: 2
+  no-eval: 2
+  no-extend-native: 2
+  no-extra-bind: 2
+  no-fallthrough: 2
+  no-floating-decimal: 1
+  no-implicit-coercion: 1
+  no-implied-eval: 2
+  no-invalid-this: 1
+  no-iterator: 2
+  no-labels: 1
+  no-lone-blocks: 2
+  no-loop-func: 2
+  no-multi-spaces: 1
+  no-multi-str: 1
+  no-native-reassign: 2
+  no-new-func: 2
+  no-new-wrappers: 2
+  no-new: 2
+  no-octal-escape: 2
+  no-octal: 2
+  no-proto: 2
+  no-redeclare: 2
+  no-return-assign: 2
+  no-script-url: 2
+  no-self-compare: 2
+  no-sequences: 1
+  no-throw-literal: 1
+  no-unused-expressions: 2
+  no-useless-call: 2
+  no-void: 2
+  no-warning-comments: 1
+  no-with: 2
+  radix: 2
+  vars-on-top: 1
+  wrap-iife: 2
+  yoda: 1
+
+  # Variables
+  init-declarations: 1
+  no-catch-shadow: 2
+  no-delete-var: 2
+  no-label-var: 2
+  no-shadow-restricted-names: 2
+  no-shadow: 1
+  no-undef-init: 2
+  no-undef: 1
+  no-undefined: 1
+  no-unused-vars: 1
+  no-use-before-define: 1
+
+  # Node.js and CommonJS
+  handle-callback-err: 2
+  no-mixed-requires: 1
+  no-new-require: 1
+  no-path-concat: 2
+  no-process-exit: 2
+  no-restricted-modules: 1
+  no-sync: 1
+
+  # Stylistic Issues
+  array-bracket-spacing: 1
+  block-spacing: 1
+  brace-style: 1
+  camelcase: 1
+  comma-spacing: 1
+  comma-style: 1
+  computed-property-spacing: 1
+  consistent-this: 1
+  eol-last: 1
+  func-names: 1
+  func-style: 1
+  id-length: 1
+  id-match: 1
+  key-spacing: 1
+  lines-around-comment: 1
+  max-depth: 1
+  max-len: 1
+  max-nested-callbacks: 1
+  max-params: 1
+  max-statements: [2, 31]
+  new-cap: 1
+  new-parens: 1
+  newline-after-var: 1
+  no-array-constructor: 1
+  no-bitwise: 1
+  no-continue: 1
+  no-inline-comments: 1
+  no-lonely-if: 1
+  no-mixed-spaces-and-tabs: 1
+  no-multiple-empty-lines: 1
+  no-negated-condition: 1
+  no-nested-ternary: 1
+  no-new-object: 1
+  no-plusplus: 1
+  no-restricted-syntax: 1
+  no-spaced-func: 1
+  no-ternary: 1
+  no-trailing-spaces: 1
+  no-underscore-dangle: 1
+  no-unneeded-ternary: 1
+  object-curly-spacing: 1
+  one-var: 1
+  operator-assignment: 1
+  operator-linebreak: 1
+  padded-blocks: 1
+  quote-props: 1
+  require-jsdoc: 1
+  semi-spacing: 1
+  sort-vars: 1
+  space-after-keywords: 1
+  space-before-blocks: 1
+  space-before-function-paren: 1
+  space-before-keywords: 1
+  space-in-parens: 1
+  space-infix-ops: 1
+  space-return-throw-case: 1
+  space-unary-ops: 1
+  spaced-comment: 1
+  wrap-regex: 1
+
+  # ECMAScript 6
+  arrow-body-style: 1
+  arrow-parens: 1
+  arrow-spacing: 1
+  constructor-super: 1
+  generator-star-spacing: 1
+  no-arrow-condition: 1
+  no-class-assign: 1
+  no-const-assign: 1
+  no-dupe-class-members: 1
+  no-this-before-super: 1
+  no-var: 1
+  object-shorthand: 1
+  prefer-arrow-callback: 1
+  prefer-const: 1
+  prefer-reflect: 1
+  prefer-spread: 1
+  prefer-template: 1
+  require-yield: 1
+
+
+
+
+  # Other - hand typed:
+  indent:
+    - 2
+    - 2
+  linebreak-style:
+    - 2
+    - unix
+  quotes:
+    - 2
+    - single
+  semi:
+    - 2
+    - always
+  strict:
+    - 2
+  valid-jsdoc:
+    - 1
+  global-require:
+    - 2
+  eqeqeq:
+    - 2
+  no-magic-numbers:
+    - 1
+  curly:
+    - 2
+  no-useless-concat:
+    - 1
+  callback-return:
+    - 1
