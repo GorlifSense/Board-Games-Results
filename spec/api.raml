@@ -5,19 +5,25 @@ version: v1
 mediaType:  application/json
 protocols: [ HTTP ]
 
+# Declare schemas and types of data
 types:
+  Tables:
+    type: Table[]
+    description: this is list of tables
+    uniqueItems: true
   Table:
     type: object
     properties:
       _id: string
-      created_at: date
-      updated_at: date
-      description: string
+      created_at: string
+      updated_at: string
+      description?: string
       game: Game
   Game:
     type: object
     properties:
-      players: [ Player ]
+      players: Player[]
+      title?: string
   Player:
     type: object
     properties:
@@ -40,87 +46,231 @@ types:
       name: string
       side: string
 
+# Define types of common resources
+resourceTypes:
+  - collection:
+      usage: This resourceType should be used for any collection of items
+      description: Collection of available <<resource>> in database
+      get:
+        description: Get a list of <<resourcePathName>>.
+        responses:
+          200:
+            body:
+              application/json:
+      post:
+        description: |
+          Add a new <<resourcePathName|!singularize>> to database.
+        queryParameters:
+          access_token:
+            description: "The JWT access token provided by the authentication application"
+            example: xxxxx.yyyyy.zzzzz
+            required: true
+            type: string
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "The <<resourcePathName|!singularize>> has been added",
+                    "success": true,
+                    "status": 200
+                  }
+
+
 /tables:
+  description: Collection of games played
+  type: collection
   get:
+    description: Get a full list of tables. Can be filtered with created_at or author.
     queryParameters:
       author:
         displayName: Author
         type: string
-        description: An author's nickname
-        example: solar
+        description: Creator's nickname
+        example: "solar"
+        minLength: 3
+        maxLength: 70
         required: false
       created_at:
-        type: date
+        type: string
         description: ISO Time when table was added
         example: 2016-06-12T21:04:32.304Z
         required: false
     responses:
       200:
         body:
-          type: [ Table ]
+          application/json:
+            type: Tables
+            example: |
+              [
+                {
+                  "_id" : "575dce66684df0fe05bade8f",
+                  "game" : {
+                    "players" : [
+                      {
+                        "nickname" : "Mark1337",
+                        "city" : {
+                          "name" : "Alexandria",
+                          "side" : "A"
+                        },
+                        "situation" : {
+                          "military" : -6,
+                          "gold" : 8,
+                          "wonder" : 3,
+                          "culture" : 0,
+                          "trade" : 6,
+                          "guild" : 5,
+                          "science" : 36
+                        }
+                      },
+                      {
+                        "nickname" : "Julia",
+                        "city" : {
+                          "name" : "Babylon",
+                          "side" : "A"
+                        },
+                        "situation" : {
+                          "military" : 6,
+                          "gold" : 0,
+                          "wonder" : 0,
+                          "culture" : 18,
+                          "trade" : 5,
+                          "guild" : 9,
+                          "science" : 2
+                        }
+                      }
+                    ]
+                  },
+                  "description" : "This game was played only with two players, strange though",
+                  "created_at" : "2016-06-11T21:04:38.621Z",
+                  "updated_at" : "2016-06-11T21:04:38.621Z"
+                },
+                {
+                  "_id" : "575dce66684df0fe05bade9f",
+                  "game" : {
+                    "players" : [
+                      {
+                        "nickname" : "Mark1337",
+                        "city" : {
+                          "name" : "Alexandria",
+                          "side" : "A"
+                        },
+                        "situation" : {
+                          "military" : -6,
+                          "gold" : 8,
+                          "wonder" : 3,
+                          "culture" : 0,
+                          "trade" : 6,
+                          "guild" : 5,
+                          "science" : 36
+                        }
+                      },
+                      {
+                        "nickname" : "FunckyBoy",
+                        "city" : {
+                          "name" : "Gizah",
+                          "side" : "A"
+                        },
+                        "situation" : {
+                          "military" : 6,
+                          "gold" : 0,
+                          "wonder" : 0,
+                          "culture" : 18,
+                          "trade" : 5,
+                          "guild" : 9,
+                          "science" : 2
+                        }
+                      }
+                    ]
+                  },
+                  "description" : "This creted for fun s",
+                  "created_at" : "2016-06-11T21:04:38.621Z",
+                  "updated_at" : "2016-06-11T21:04:38.621Z"
+                }
+              ]
   post:
-  put:
-  delete:
+    description: Create new table
   /{tableId}:
+    description: Table entity
     get:
+      description:  Get the table with `tableId = {tableId}`
       responses:
         200:
           body:
-            example: |
-              {
-                data: {
-                  "_id" : "575dce66684df0fe05bade8f",
-                	"game" : {
-                		"players" : [
-                			{
-                				"nickname" : "Mark1337",
-                				"city" : {
-                					"name" : "Alexandria",
-                					"side" : "A"
-                				},
-                				"situation" : {
-                					"military" : -6,
-                					"gold" : 8,
-                					"wonder" : 3,
-                					"culture" : 0,
-                					"trade" : 6,
-                					"guild" : 5,
-                					"science" : 36
-                				}
-                			},
-                      {
-                				"nickname" : "Julia",
-                				"city" : {
-                					"name" : "Babylon",
-                					"side" : "A"
-                				},
-                				"situation" : {
-                					"military" : 6,
-                					"gold" : 0,
-                					"wonder" : 0,
-                					"culture" : 18,
-                					"trade" : 5,
-                					"guild" : 9,
-                					"science" : 2
-                				}
-                			}
-                		]
-                	},
-                	"description" : "This game was played only with two players,
-                  strange though",
-                	"created_at" : "2016-06-12T21:04:38.621Z",
-                	"updated_at" : "2016-06-12T21:04:38.621Z"
-                },
-                "success": true,
-                "status": 200
-              }
-
+            application/json:
+              example: |
+                {
+                  data: {
+                    "_id" : "575dce66684df0fe05bade8f",
+                  	"game" : {
+                  		"players" : [
+                  			{
+                  				"nickname" : "Mark1337",
+                  				"city" : {
+                  					"name" : "Alexandria",
+                  					"side" : "A"
+                  				},
+                  				"situation" : {
+                  					"military" : -6,
+                  					"gold" : 8,
+                  					"wonder" : 3,
+                  					"culture" : 0,
+                  					"trade" : 6,
+                  					"guild" : 5,
+                  					"science" : 36
+                  				}
+                  			},
+                        {
+                  				"nickname" : "Julia",
+                  				"city" : {
+                  					"name" : "Babylon",
+                  					"side" : "A"
+                  				},
+                  				"situation" : {
+                  					"military" : 6,
+                  					"gold" : 0,
+                  					"wonder" : 0,
+                  					"culture" : 18,
+                  					"trade" : 5,
+                  					"guild" : 9,
+                  					"science" : 2
+                  				}
+                  			}
+                  		]
+                  	},
+                  	"description" : "This game was played only with two players, strange though",
+                  	"created_at" : "2016-06-12T21:04:38.621Z",
+                  	"updated_at" : "2016-06-12T21:04:38.621Z"
+                  },
+                  "success": true,
+                  "status": 200
+                }
+        404:
+          body:
+            application/json:
+              example: |
+                {
+                  "message": "Table was not Found"
+                  "success": false,
+                  "status": 404
+                }
     put:
+      description: Update {tableId} info with new data
       queryParameters:
         access_token:
           displayName: Access Token
           type: string
           description: Token giving you permission to make call
           required: true
-    post:
     delete:
+      description: Delete {tableId} from database completely. Cannot be undone
+      queryParameters:
+        access_token:
+          displayName: Access Token
+          type: string
+          description: Token giving you permission to make call
+          required: true
