@@ -1,0 +1,126 @@
+#%RAML 1.0
+title: Board Games Results API
+baseUri: http://boardgamesresults.herokuapp.com/api/{version}
+version: v1
+mediaType:  application/json
+protocols: [ HTTP ]
+
+types:
+  Table:
+    type: object
+    properties:
+      _id: string
+      created_at: date
+      updated_at: date
+      description: string
+      game: Game
+  Game:
+    type: object
+    properties:
+      players: [ Player ]
+  Player:
+    type: object
+    properties:
+      nickname: string
+      situation: Situation
+      city: City
+  Situation:
+    type: object
+    properties:
+      military: number
+      gold: number
+      wonder: number
+      culture: number
+      trade: number
+      guild: number
+      science: number
+  City:
+    type: object
+    properties:
+      name: string
+      side: string
+
+/tables:
+  get:
+    queryParameters:
+      author:
+        displayName: Author
+        type: string
+        description: An author's nickname
+        example: solar
+        required: false
+      created_at:
+        type: date
+        description: ISO Time when table was added
+        example: 2016-06-12T21:04:32.304Z
+        required: false
+    responses:
+      200:
+        body:
+          type: [ Table ]
+  post:
+  put:
+  delete:
+  /{tableId}:
+    get:
+      responses:
+        200:
+          body:
+            example: |
+              {
+                data: {
+                  "_id" : "575dce66684df0fe05bade8f",
+                	"game" : {
+                		"players" : [
+                			{
+                				"nickname" : "Mark1337",
+                				"city" : {
+                					"name" : "Alexandria",
+                					"side" : "A"
+                				},
+                				"situation" : {
+                					"military" : -6,
+                					"gold" : 8,
+                					"wonder" : 3,
+                					"culture" : 0,
+                					"trade" : 6,
+                					"guild" : 5,
+                					"science" : 36
+                				}
+                			},
+                      {
+                				"nickname" : "Julia",
+                				"city" : {
+                					"name" : "Babylon",
+                					"side" : "A"
+                				},
+                				"situation" : {
+                					"military" : 6,
+                					"gold" : 0,
+                					"wonder" : 0,
+                					"culture" : 18,
+                					"trade" : 5,
+                					"guild" : 9,
+                					"science" : 2
+                				}
+                			}
+                		]
+                	},
+                	"description" : "This game was played only with two players,
+                  strange though",
+                	"created_at" : "2016-06-12T21:04:38.621Z",
+                	"updated_at" : "2016-06-12T21:04:38.621Z"
+                },
+                "success": true,
+                "status": 200
+              }
+
+    put:
+      queryParameters:
+        access_token:
+          displayName: Access Token
+          type: string
+          description: Token giving you permission to make call
+          required: true
+    post:
+    delete:
