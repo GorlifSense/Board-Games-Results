@@ -7,31 +7,39 @@ protocols: [ HTTP ]
 
 # Declare schemas and types of data
 types:
-  Tables:
-    type: Table[]
-    description: this is list of tables
+  tables:
+    type: table[]
+    description: This is list of tables.
     uniqueItems: true
-  Table:
+  table:
     type: object
+    description: Single table entity.
     properties:
       _id?: string
-      created_at?: datetime
-      updated_at?: datetime
+      created_at?:
+        type: datetime
+        example: 2016-02-28T16:41:41.090Z
+      updated_at?:
+        type: datetime
+        example: 2016-02-28T16:41:41.090Z
       description?: string
       game: Game
   Game:
     type: object
+    description: Information about game and its situation.
     properties:
       players: Player[]
       title?: string
   Player:
     type: object
+    description: Person who played a game.
     properties:
       nickname: string
       situation: Situation
       city: City
   Situation:
     type: object
+    description: Specific set of state at the end of the game to store.
     properties:
       military: number
       gold: number
@@ -45,45 +53,54 @@ types:
     properties:
       name: string
       side: string
+  Response:
+    type: object
+    properties:
+      success: boolean
+      status: number
+      message?: string
+      data?: object
 
 # Define types of common resources
 resourceTypes:
-  - collection:
-      usage: This resourceType should be used for any collection of items
-      description: Collection of available <<resource>> in database
-      get:
-        description: Get a list of <<resourcePathName>>.
-        responses:
-          200:
-            body:
-              application/json:
-                example: |
-                  <<exampleCollection>>
-      post:
-        description: |
-          Add a new <<resourcePathName|!singularize>> to database.
-        queryParameters:
-          access_token:
-            description: "The JWT access token provided by the authentication application"
-            example: xxxxx.yyyyy.zzzzz
-            required: true
-            type: string
-        body:
-          application/json:
-            type: <<resourcePathName|!singularize>>
-            example: |
-              <<exampleBodyItem>>
-        responses:
-          200:
-            body:
-              application/json:
-                example: |
-                  {
-                    "message": "The <<resourcePathName|!singularize>> has been added",
-                    "success": true,
-                    "status": 200
-                  }
-  - collection-item:
+  # Multiple items
+  collection:
+    usage: This resourceType should be used for any collection of items
+    description: Collection of available <<resource>> in database
+    get:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+              type: tables
+              example: <<exampleCollection>>
+    post:
+      description: |
+        Add a new <<resourcePathName|!singularize>> to database.
+      queryParameters:
+        access_token:
+          description: "The JWT access token provided by the authentication application"
+          example: xxxxx.yyyyy.zzzzz
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName|!singularize>>
+          example: <<exampleBodyItem>>
+      responses:
+        200:
+          body:
+            application/json:
+              type: Response
+              example: |
+                {
+                  "message": "The <<resourcePathName|!singularize>> has been added",
+                  "success": true,
+                  "status": 200
+                }
+  # Single item
+  collection-item:
       description: Entity representing a <<resourcePathName|!singularize>>
       get:
         description: |
@@ -94,14 +111,14 @@ resourceTypes:
           200:
             body:
               application/json:
-                example: |
-                  <<exampleItem>>
+                type: Response
+                example: <<exampleItem>>
           404:
             body:
               application/json:
                 example: |
                   {
-                    "message": "<<resourcePathName|!singularize>> not found",
+                    "message": "<<resourcePathName|!singularize>> not found in collection",
                     "success": false,
                     "status": 404
                   }
@@ -118,12 +135,12 @@ resourceTypes:
         body:
           application/json:
             type: <<resourcePathName|!singularize>>
-            example: |
-              <<exampleBodyItem>>
+            example: <<exampleBodyItem>>
         responses:
-          200:
+          204:
             body:
               application/json:
+                type: Response
                 example: |
                   {
                     "message": "The <<resourcePathName|!singularize>> has been changed",
@@ -133,6 +150,7 @@ resourceTypes:
           404:
             body:
               application/json:
+                type: Response
                 example: |
                   {
                     "message": "<<resourcePathName|!singularize>> not found",
@@ -151,7 +169,7 @@ resourceTypes:
             example: xxxxx.yyyyy.zzzzz
             required: true
         responses:
-          200:
+          204:
             body:
               application/json:
                 example: |
@@ -169,141 +187,43 @@ resourceTypes:
                     "success": false,
                     "status": 404
                   }
+# Traits of resources
+traits:
+  secured:
+    usage: Apply this to any method that needs to be secured
+    description: Some requests require authentication with JWT.
+    headers:
+      access_token:
+        description: Token giving you permission to make call
+        example: xxxxx.yyyyy.zzzzz
+        required: true
+  pageable:
+    queryParameters:
+      offset:
+        description: Skip over a number of elements by specifying an offset value for the query
+        type: integer
+        required: false
+        example: 20
+        default: 0
+      limit:
+        description: Limit the number of elements on the response
+        type: integer
+        required: false
+        example: 160
+        default: 100
 
 # Define resources
 /tables:
-  description: Collection of games played
-  type: collection
-    exampleCollection: |
-        [
-          {
-            "_id" : "575dce66684df0fe05bade8f",
-            "game" : {
-              "players" : [
-                {
-                  "nickname" : "Mark1337",
-                  "city" : {
-                    "name" : "Alexandria",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : -6,
-                    "gold" : 8,
-                    "wonder" : 3,
-                    "culture" : 0,
-                    "trade" : 6,
-                    "guild" : 5,
-                    "science" : 36
-                  }
-                },
-                {
-                  "nickname" : "Julia",
-                  "city" : {
-                    "name" : "Babylon",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : 6,
-                    "gold" : 0,
-                    "wonder" : 0,
-                    "culture" : 18,
-                    "trade" : 5,
-                    "guild" : 9,
-                    "science" : 2
-                  }
-                }
-              ]
-            },
-            "description" : "This game was played only with two players, strange though",
-            "created_at" : "2016-06-11T21:04:38.621Z",
-            "updated_at" : "2016-06-11T21:04:38.621Z"
-          },
-          {
-            "_id" : "575dce66684df0fe05bade9f",
-            "game" : {
-              "players" : [
-                {
-                  "nickname" : "Mark1337",
-                  "city" : {
-                    "name" : "Alexandria",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : -6,
-                    "gold" : 8,
-                    "wonder" : 3,
-                    "culture" : 0,
-                    "trade" : 6,
-                    "guild" : 5,
-                    "science" : 36
-                  }
-                },
-                {
-                  "nickname" : "FunckyBoy",
-                  "city" : {
-                    "name" : "Gizah",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : 6,
-                    "gold" : 0,
-                    "wonder" : 0,
-                    "culture" : 18,
-                    "trade" : 5,
-                    "guild" : 9,
-                    "science" : 2
-                  }
-                }
-              ]
-            },
-            "description" : "This creted for fun s",
-            "created_at" : "2016-06-11T21:04:38.621Z",
-            "updated_at" : "2016-06-11T21:04:38.621Z"
-          }
-        ]
-      exampleBodyItem: |
-        {
-          "game" : {
-            "title": "7 Wonders",
-            "players" : [
-              {
-                "nickname" : "GreenFalcon",
-                "city" : {
-                  "name" : "Gizah",
-                  "side" : "B"
-                },
-                "situation" : {
-                  "military" : 0,
-                  "gold" : 8,
-                  "wonder" : 3,
-                  "culture" : 0,
-                  "trade" : 6,
-                  "guild" : 4,
-                  "science" : 36
-                }
-              },
-              {
-                "nickname" : "Aragorn",
-                "city" : {
-                  "name" : "Babylon",
-                  "side" : "B"
-                },
-                "situation" : {
-                  "military" : 6,
-                  "gold" : 0,
-                  "wonder" : 0,
-                  "culture" : 18,
-                  "trade" : 5,
-                  "guild" : 9,
-                  "science" : 2
-                }
-              }
-            ]
-          },
-          "description" : "This was created with POST request"
-        }
+  description: Collection of games played. Reffered to as "tables"
+  type:
+    collection:
+      exampleCollection: !include tables-get-collection.example.json
+      exampleBodyItem: !include tables-post-item.example.json
   get:
-    description: Get a full list of tables. Can be filtered with created_at or author.
+    is: [ pageable ]
+    description: |
+      Get a full list of tables.
+      Can be filtered with created_at or author.
     queryParameters:
       author:
         displayName: Author
@@ -318,101 +238,17 @@ resourceTypes:
         description: ISO Time when table was added
         example: 2016-06-12T21:04:32.304Z
         required: false
-    responses:
-      200:
-        body:
-          application/json:
-            type: Tables
+
   post:
+    is: [ secured ]
     description: Create new table
   /{tableId}:
-    description: Table entity
-    type: collection-item
-      exampleItem: |
-        {
-          data: {
-            "_id" : "575dce66684df0fe05bade8f",
-            "game" : {
-              "players" : [
-                {
-                  "nickname" : "Mark1337",
-                  "city" : {
-                    "name" : "Alexandria",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : -6,
-                    "gold" : 8,
-                    "wonder" : 3,
-                    "culture" : 0,
-                    "trade" : 6,
-                    "guild" : 5,
-                    "science" : 36
-                  }
-                },
-                {
-                  "nickname" : "Julia",
-                  "city" : {
-                    "name" : "Babylon",
-                    "side" : "A"
-                  },
-                  "situation" : {
-                    "military" : 6,
-                    "gold" : 0,
-                    "wonder" : 0,
-                    "culture" : 18,
-                    "trade" : 5,
-                    "guild" : 9,
-                    "science" : 2
-                  }
-                }
-              ]
-            },
-            "description" : "This game was played only with two players, strange though",
-            "created_at" : "2016-06-12T21:04:38.621Z",
-            "updated_at" : "2016-06-12T21:04:38.621Z"
-          },
-          "success": true,
-          "status": 200
-        }
-      exampleBodyItem: |
-        {
-          "game" : {
-            "title": "7 Wonders",
-            "players" : [
-              {
-                "nickname" : "GreenFalcon",
-                "city" : {
-                  "name" : "Gizah",
-                  "side" : "B"
-                },
-                "situation" : {
-                  "military" : 0,
-                  "gold" : 8,
-                  "wonder" : 3,
-                  "culture" : 0,
-                  "trade" : 6,
-                  "guild" : 4,
-                  "science" : 36
-                }
-              },
-              {
-                "nickname" : "Aragorn",
-                "city" : {
-                  "name" : "Babylon",
-                  "side" : "B"
-                },
-                "situation" : {
-                  "military" : 6,
-                  "gold" : 0,
-                  "wonder" : 0,
-                  "culture" : 18,
-                  "trade" : 5,
-                  "guild" : 9,
-                  "science" : 2
-                }
-              }
-            ]
-          },
-          "description" : "This was created with POST request"
-        }
+    description: Single game table
+    type:
+      collection-item:
+        exampleItem: !include tables-tableId-get-item.example.json
+        exampleBodyItem: !include tables-tableId-put-item.example.json
+    put:
+      is: [ secured ]
+    delete:
+      is: [ secured ]

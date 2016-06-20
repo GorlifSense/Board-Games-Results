@@ -1,0 +1,46 @@
+{
+  "data": {
+    "_id" : "575dce66684df0fe05bade8f",
+    "game" : {
+      "players" : [
+        {
+          "nickname" : "Mark1337",
+          "city" : {
+            "name" : "Alexandria",
+            "side" : "A"
+          },
+          "situation" : {
+            "military" : -6,
+            "gold" : 8,
+            "wonder" : 3,
+            "culture" : 0,
+            "trade" : 6,
+            "guild" : 5,
+            "science" : 36
+          }
+        },
+        {
+          "nickname" : "Julia",
+          "city" : {
+            "name" : "Babylon",
+            "side" : "A"
+          },
+          "situation" : {
+            "military" : 6,
+            "gold" : 0,
+            "wonder" : 0,
+            "culture" : 18,
+            "trade" : 5,
+            "guild" : 9,
+            "science" : 2
+          }
+        }
+      ]
+    },
+    "description" : "This game was played only with two players, strange though",
+    "created_at" : "2016-06-12T21:04:38.621Z",
+    "updated_at" : "2016-06-12T21:04:38.621Z"
+  },
+  "success": true,
+  "status": 200
+}

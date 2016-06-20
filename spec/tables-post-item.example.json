@@ -1,0 +1,40 @@
+{
+  "game" : {
+    "title": "7 Wonders",
+    "players" : [
+      {
+        "nickname" : "GreenFalcon",
+        "city" : {
+          "name" : "Gizah",
+          "side" : "B"
+        },
+        "situation" : {
+          "military" : 0,
+          "gold" : 8,
+          "wonder" : 3,
+          "culture" : 0,
+          "trade" : 6,
+          "guild" : 4,
+          "science" : 36
+        }
+      },
+      {
+        "nickname" : "Aragorn",
+        "city" : {
+          "name" : "Babylon",
+          "side" : "B"
+        },
+        "situation" : {
+          "military" : 6,
+          "gold" : 0,
+          "wonder" : 0,
+          "culture" : 18,
+          "trade" : 5,
+          "guild" : 9,
+          "science" : 2
+        }
+      }
+    ]
+  },
+  "description" : "This was created with POST request"
+}

@@ -7,8 +7,9 @@
   ],
   "license": "ISC",
   "keywords": [
-    "board",
-    "games"
+    "board games",
+    "saving statistics",
+    "web application"
   ],
   "homepage": "https://github.com/GorlifSense/Board-Games-Results",
   "private": true,
