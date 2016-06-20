@@ -14,9 +14,9 @@ types:
   Table:
     type: object
     properties:
-      _id: string
-      created_at: string
-      updated_at: string
+      _id?: string
+      created_at?: datetime
+      updated_at?: datetime
       description?: string
       game: Game
   Game:
@@ -57,6 +57,8 @@ resourceTypes:
           200:
             body:
               application/json:
+                example: |
+                  <<exampleCollection>>
       post:
         description: |
           Add a new <<resourcePathName|!singularize>> to database.
@@ -69,6 +71,8 @@ resourceTypes:
         body:
           application/json:
             type: <<resourcePathName|!singularize>>
+            example: |
+              <<exampleBodyItem>>
         responses:
           200:
             body:
@@ -79,11 +83,225 @@ resourceTypes:
                     "success": true,
                     "status": 200
                   }
+  - collection-item:
+      description: Entity representing a <<resourcePathName|!singularize>>
+      get:
+        description: |
+          Get the <<resourcePathName|!singularize>>
+          with <<resourcePathName|!singularize>>Id =
+          {<<resourcePathName|!singularize>>Id}
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  <<exampleItem>>
+          404:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "<<resourcePathName|!singularize>> not found",
+                    "success": false,
+                    "status": 404
+                  }
+      put:
+        description: |
+          Update {<<resourcePathName|!singularize>>Id} info with new data
+        queryParameters:
+          access_token:
+            displayName: Access Token
+            type: string
+            description: Token giving you permission to make call
+            example: xxxxx.yyyyy.zzzzz
+            required: true
+        body:
+          application/json:
+            type: <<resourcePathName|!singularize>>
+            example: |
+              <<exampleBodyItem>>
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "The <<resourcePathName|!singularize>> has been changed",
+                    "success": true,
+                    "status": 200
+                  }
+          404:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "<<resourcePathName|!singularize>> not found",
+                    "success": false,
+                    "status": 404
+                  }
+      delete:
+        description: |
+          Delete {{<<resourcePathName|!singularize>>Id}
+          from database completely. Cannot be undone
+        queryParameters:
+          access_token:
+            displayName: Access Token
+            type: string
+            description: Token giving you permission to make call
+            example: xxxxx.yyyyy.zzzzz
+            required: true
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "The <<resourcePathName|!singularize>> has been deleted",
+                    "success": true,
+                    "status": 200
+                  }
+          404:
+            body:
+              application/json:
+                example: |
+                  {
+                    "message": "<<resourcePathName|!singularize>> not found",
+                    "success": false,
+                    "status": 404
+                  }
 
-
+# Define resources
 /tables:
   description: Collection of games played
   type: collection
+    exampleCollection: |
+        [
+          {
+            "_id" : "575dce66684df0fe05bade8f",
+            "game" : {
+              "players" : [
+                {
+                  "nickname" : "Mark1337",
+                  "city" : {
+                    "name" : "Alexandria",
+                    "side" : "A"
+                  },
+                  "situation" : {
+                    "military" : -6,
+                    "gold" : 8,
+                    "wonder" : 3,
+                    "culture" : 0,
+                    "trade" : 6,
+                    "guild" : 5,
+                    "science" : 36
+                  }
+                },
+                {
+                  "nickname" : "Julia",
+                  "city" : {
+                    "name" : "Babylon",
+                    "side" : "A"
+                  },
+                  "situation" : {
+                    "military" : 6,
+                    "gold" : 0,
+                    "wonder" : 0,
+                    "culture" : 18,
+                    "trade" : 5,
+                    "guild" : 9,
+                    "science" : 2
+                  }
+                }
+              ]
+            },
+            "description" : "This game was played only with two players, strange though",
+            "created_at" : "2016-06-11T21:04:38.621Z",
+            "updated_at" : "2016-06-11T21:04:38.621Z"
+          },
+          {
+            "_id" : "575dce66684df0fe05bade9f",
+            "game" : {
+              "players" : [
+                {
+                  "nickname" : "Mark1337",
+                  "city" : {
+                    "name" : "Alexandria",
+                    "side" : "A"
+                  },
+                  "situation" : {
+                    "military" : -6,
+                    "gold" : 8,
+                    "wonder" : 3,
+                    "culture" : 0,
+                    "trade" : 6,
+                    "guild" : 5,
+                    "science" : 36
+                  }
+                },
+                {
+                  "nickname" : "FunckyBoy",
+                  "city" : {
+                    "name" : "Gizah",
+                    "side" : "A"
+                  },
+                  "situation" : {
+                    "military" : 6,
+                    "gold" : 0,
+                    "wonder" : 0,
+                    "culture" : 18,
+                    "trade" : 5,
+                    "guild" : 9,
+                    "science" : 2
+                  }
+                }
+              ]
+            },
+            "description" : "This creted for fun s",
+            "created_at" : "2016-06-11T21:04:38.621Z",
+            "updated_at" : "2016-06-11T21:04:38.621Z"
+          }
+        ]
+      exampleBodyItem: |
+        {
+          "game" : {
+            "title": "7 Wonders",
+            "players" : [
+              {
+                "nickname" : "GreenFalcon",
+                "city" : {
+                  "name" : "Gizah",
+                  "side" : "B"
+                },
+                "situation" : {
+                  "military" : 0,
+                  "gold" : 8,
+                  "wonder" : 3,
+                  "culture" : 0,
+                  "trade" : 6,
+                  "guild" : 4,
+                  "science" : 36
+                }
+              },
+              {
+                "nickname" : "Aragorn",
+                "city" : {
+                  "name" : "Babylon",
+                  "side" : "B"
+                },
+                "situation" : {
+                  "military" : 6,
+                  "gold" : 0,
+                  "wonder" : 0,
+                  "culture" : 18,
+                  "trade" : 5,
+                  "guild" : 9,
+                  "science" : 2
+                }
+              }
+            ]
+          },
+          "description" : "This was created with POST request"
+        }
   get:
     description: Get a full list of tables. Can be filtered with created_at or author.
     queryParameters:
@@ -96,7 +314,7 @@ resourceTypes:
         maxLength: 70
         required: false
       created_at:
-        type: string
+        type: datetime
         description: ISO Time when table was added
         example: 2016-06-12T21:04:32.304Z
         required: false
@@ -105,172 +323,96 @@ resourceTypes:
         body:
           application/json:
             type: Tables
-            example: |
-              [
-                {
-                  "_id" : "575dce66684df0fe05bade8f",
-                  "game" : {
-                    "players" : [
-                      {
-                        "nickname" : "Mark1337",
-                        "city" : {
-                          "name" : "Alexandria",
-                          "side" : "A"
-                        },
-                        "situation" : {
-                          "military" : -6,
-                          "gold" : 8,
-                          "wonder" : 3,
-                          "culture" : 0,
-                          "trade" : 6,
-                          "guild" : 5,
-                          "science" : 36
-                        }
-                      },
-                      {
-                        "nickname" : "Julia",
-                        "city" : {
-                          "name" : "Babylon",
-                          "side" : "A"
-                        },
-                        "situation" : {
-                          "military" : 6,
-                          "gold" : 0,
-                          "wonder" : 0,
-                          "culture" : 18,
-                          "trade" : 5,
-                          "guild" : 9,
-                          "science" : 2
-                        }
-                      }
-                    ]
-                  },
-                  "description" : "This game was played only with two players, strange though",
-                  "created_at" : "2016-06-11T21:04:38.621Z",
-                  "updated_at" : "2016-06-11T21:04:38.621Z"
-                },
-                {
-                  "_id" : "575dce66684df0fe05bade9f",
-                  "game" : {
-                    "players" : [
-                      {
-                        "nickname" : "Mark1337",
-                        "city" : {
-                          "name" : "Alexandria",
-                          "side" : "A"
-                        },
-                        "situation" : {
-                          "military" : -6,
-                          "gold" : 8,
-                          "wonder" : 3,
-                          "culture" : 0,
-                          "trade" : 6,
-                          "guild" : 5,
-                          "science" : 36
-                        }
-                      },
-                      {
-                        "nickname" : "FunckyBoy",
-                        "city" : {
-                          "name" : "Gizah",
-                          "side" : "A"
-                        },
-                        "situation" : {
-                          "military" : 6,
-                          "gold" : 0,
-                          "wonder" : 0,
-                          "culture" : 18,
-                          "trade" : 5,
-                          "guild" : 9,
-                          "science" : 2
-                        }
-                      }
-                    ]
-                  },
-                  "description" : "This creted for fun s",
-                  "created_at" : "2016-06-11T21:04:38.621Z",
-                  "updated_at" : "2016-06-11T21:04:38.621Z"
-                }
-              ]
   post:
     description: Create new table
   /{tableId}:
     description: Table entity
-    get:
-      description:  Get the table with `tableId = {tableId}`
-      responses:
-        200:
-          body:
-            application/json:
-              example: |
+    type: collection-item
+      exampleItem: |
+        {
+          data: {
+            "_id" : "575dce66684df0fe05bade8f",
+            "game" : {
+              "players" : [
                 {
-                  data: {
-                    "_id" : "575dce66684df0fe05bade8f",
-                  	"game" : {
-                  		"players" : [
-                  			{
-                  				"nickname" : "Mark1337",
-                  				"city" : {
-                  					"name" : "Alexandria",
-                  					"side" : "A"
-                  				},
-                  				"situation" : {
-                  					"military" : -6,
-                  					"gold" : 8,
-                  					"wonder" : 3,
-                  					"culture" : 0,
-                  					"trade" : 6,
-                  					"guild" : 5,
-                  					"science" : 36
-                  				}
-                  			},
-                        {
-                  				"nickname" : "Julia",
-                  				"city" : {
-                  					"name" : "Babylon",
-                  					"side" : "A"
-                  				},
-                  				"situation" : {
-                  					"military" : 6,
-                  					"gold" : 0,
-                  					"wonder" : 0,
-                  					"culture" : 18,
-                  					"trade" : 5,
-                  					"guild" : 9,
-                  					"science" : 2
-                  				}
-                  			}
-                  		]
-                  	},
-                  	"description" : "This game was played only with two players, strange though",
-                  	"created_at" : "2016-06-12T21:04:38.621Z",
-                  	"updated_at" : "2016-06-12T21:04:38.621Z"
+                  "nickname" : "Mark1337",
+                  "city" : {
+                    "name" : "Alexandria",
+                    "side" : "A"
                   },
-                  "success": true,
-                  "status": 200
-                }
-        404:
-          body:
-            application/json:
-              example: |
+                  "situation" : {
+                    "military" : -6,
+                    "gold" : 8,
+                    "wonder" : 3,
+                    "culture" : 0,
+                    "trade" : 6,
+                    "guild" : 5,
+                    "science" : 36
+                  }
+                },
                 {
-                  "message": "Table was not Found"
-                  "success": false,
-                  "status": 404
+                  "nickname" : "Julia",
+                  "city" : {
+                    "name" : "Babylon",
+                    "side" : "A"
+                  },
+                  "situation" : {
+                    "military" : 6,
+                    "gold" : 0,
+                    "wonder" : 0,
+                    "culture" : 18,
+                    "trade" : 5,
+                    "guild" : 9,
+                    "science" : 2
+                  }
                 }
-    put:
-      description: Update {tableId} info with new data
-      queryParameters:
-        access_token:
-          displayName: Access Token
-          type: string
-          description: Token giving you permission to make call
-          required: true
-    delete:
-      description: Delete {tableId} from database completely. Cannot be undone
-      queryParameters:
-        access_token:
-          displayName: Access Token
-          type: string
-          description: Token giving you permission to make call
-          required: true
+              ]
+            },
+            "description" : "This game was played only with two players, strange though",
+            "created_at" : "2016-06-12T21:04:38.621Z",
+            "updated_at" : "2016-06-12T21:04:38.621Z"
+          },
+          "success": true,
+          "status": 200
+        }
+      exampleBodyItem: |
+        {
+          "game" : {
+            "title": "7 Wonders",
+            "players" : [
+              {
+                "nickname" : "GreenFalcon",
+                "city" : {
+                  "name" : "Gizah",
+                  "side" : "B"
+                },
+                "situation" : {
+                  "military" : 0,
+                  "gold" : 8,
+                  "wonder" : 3,
+                  "culture" : 0,
+                  "trade" : 6,
+                  "guild" : 4,
+                  "science" : 36
+                }
+              },
+              {
+                "nickname" : "Aragorn",
+                "city" : {
+                  "name" : "Babylon",
+                  "side" : "B"
+                },
+                "situation" : {
+                  "military" : 6,
+                  "gold" : 0,
+                  "wonder" : 0,
+                  "culture" : 18,
+                  "trade" : 5,
+                  "guild" : 9,
+                  "science" : 2
+                }
+              }
+            ]
+          },
+          "description" : "This was created with POST request"
+        }
