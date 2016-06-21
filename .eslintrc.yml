@@ -128,7 +128,7 @@ rules:
   consistent-this: 1
   eol-last: 1
   func-names: 1
-  func-style: 1
+  func-style: 0 # removed as functions used as declarations mostly
   id-length: 1
   id-match: 1
   key-spacing: 1
@@ -159,7 +159,9 @@ rules:
   no-underscore-dangle: 1
   no-unneeded-ternary: 1
   object-curly-spacing: 1
-  one-var: 0
+  one-var:
+    - 1
+    - never
   operator-assignment: 1
   operator-linebreak: 1
   padded-blocks: 1
@@ -167,7 +169,7 @@ rules:
   semi-spacing: 1
   sort-vars: 1
   space-before-blocks: 1
-  space-before-function-paren: 1
+
   space-in-parens: 1
   space-infix-ops: 1
   space-unary-ops: 1
@@ -210,6 +212,7 @@ rules:
     - 2
   valid-jsdoc:
     - 1
+    - requireReturn: false
   global-require:
     - 2
   eqeqeq:
@@ -233,3 +236,9 @@ rules:
     -
       keywords: true
       unnecessary: false
+
+  space-before-function-paren:
+    - 1
+    -
+      anonymous: always
+      named: never

@@ -1,16 +1,16 @@
 'use strict';
 
-var path = require('path');
+const path = require('path');
 
 /**
  * Views.
  */
 
- var views = require('co-views');
+const views = require('co-views');
 
 // setup views mapping .html
 // to the swig template engine
 
 module.exports = views(path.join(__dirname, '/views'), {
-  map: { html: 'swig' }
+  map: {html: 'swig'}
 });
