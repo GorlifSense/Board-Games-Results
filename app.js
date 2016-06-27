@@ -1,5 +1,6 @@
 'use strict';
 
+// Global dependencies
 const app = require('koa')();
 const logger = require('koa-logger');
 const route = require('koa-route');
@@ -7,13 +8,16 @@ const Router = require('koa-router');
 const json = require('koa-json');
 const favicon = require('koa-favicon');
 const serve = require('koa-static');
-const winston = require('winston');
-const parse = require('co-body');
+const koaBetterBody = require('koa-better-body');
 const Mongorito = require('mongorito');
-const Model = Mongorito.Model;
 
-const render = require('./render');
+// Project dependencies
+const Tables = require('./controllers/tables');
 const router = require('./router');
+
+// Internal variables
+const getTables = Tables.getTables;
+const postTables = Tables.postTables;
 
 // logger
 app.use(logger());
@@ -24,36 +28,6 @@ app.use(serve('public', {
   maxage: 10000
 }));
 
-// insert Table Schema
-class Table extends Model {}
-
-// route definitions
-
-/**
- * Get Tables
- */
-function *getTables() {
-
-  const tables = yield Table.all();
-
-  winston.debug(tables);
-  this.body = yield render('tables', {tables});
-
-}
-
-/**
- * Post Table
- */
-function *postTables() {
-
-  const post = new Table(yield parse(this));
-
-  winston.debug(post);
-
-  yield post.save();
-  this.redirect('/tables');
-
-}
 
 // NOTE soon to be @deprecated
 app.use(route.get('/tables', getTables));
@@ -68,9 +42,13 @@ const Boom = require('boom');
 // TODO remove pretty print
 api.use(json());
 
+router.use(koaBetterBody());
+
+// TODO change this to more general
 api.get('/', function* () {
   this.body = {success: true, status: 200, message: 'Read the docs of API'};
 });
+
 api.use('/v:version', router.routes());
 
 app.use(api.routes());

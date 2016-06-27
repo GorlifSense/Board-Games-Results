@@ -164,7 +164,7 @@ rules:
     - never
   operator-assignment: 1
   operator-linebreak: 1
-  padded-blocks: 1
+  padded-blocks: 0
   require-jsdoc: 1
   semi-spacing: 1
   sort-vars: 1

@@ -4,6 +4,8 @@ const router = require('koa-router')();
 const winston = require('winston');
 const Boom = require('boom');
 
+const tables = require('./controllers/tables');
+
 const response = {
   'success': true,
   'test': true,
@@ -12,29 +14,15 @@ const response = {
 
 router.get('/', function* () {
   winston.debug(this.params);
-  response.message = 'router get version '+ this.params.version + ' test';
+  response.message = 'router get version ' + this.params.version + ' test';
   this.body = response;
 
 });
 
-router.get('/tables', function* () {
-  response.message = 'router get table test';
-  this.body = response;
-
-});
-
-router.post('/tables', function* () {
-  response.message = 'router post table test';
-  this.body = response;
-
-});
-
-// router.allowedMethods({
-//   'throw': true,
-//   notImplemented: () =>
-//     new Boom.notImplemented('that method is not implemented'),
-//   methodNotAllowed: () =>
-//     new Boom.methodNotAllowed('that method is not allowed')
-// });
+router.get('/tables', tables.list);
+router.post('/tables', tables.add);
+router.get('/tables/:tableId', tables.get);
+router.put('/tables/:tableId', tables.edit);
+router.delete('/tables/:tableId', tables.remove);
 
 module.exports = router;
