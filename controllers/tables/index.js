@@ -41,7 +41,12 @@ exports.get = function *getOne() {
 
   const response = new CommonResponse();
 
-  response.data = table;
+  if (table) {
+    response.data = table;
+  } else {
+    response.message = 'Table not found';
+    this.status = response.status = 404;
+  }
   winston.silly(response);
   this.body = response;
 };
@@ -54,7 +59,9 @@ exports.edit = function *editTable() {
   this.assert(params, 400, 'Params are empty');
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  winston.debug(table);
+  this.assert(table, 404, 'Table not found');
+
+  winston.silly(table);
   if (body.description) {
     table.set('description', body.description);
   }
@@ -72,11 +79,19 @@ exports.remove = function *removeTable() {
   const params = this.params;
 
   this.assert(params, 400, 'Params are empty');
-  const table = yield Table.where('_id', params.tableId).remove();
+  winston.debug(params);
+
+  const table = yield Table.where('_id', params.tableId).findOne();
+
+  this.assert(table, 404, 'Table is removed');
+
+  table.set('deleted', true);
 
   const response = new CommonResponse();
 
-  response.data = table;
+  const removal = yield table.remove();
+
+  response.data = removal;
   winston.silly(response);
   this.body = response;
 };
@@ -89,7 +104,7 @@ function *getTables() {
 
   const tables = yield Table.all();
 
-  winston.debug(tables);
+  winston.silly(tables);
   this.body = yield render('tables', {tables});
 
 }
@@ -102,8 +117,7 @@ function *postTables() {
 
   const table = new Table(yield parse(this));
 
-  // winston.silly(table);
-
+  winston.silly(table);
   yield table.save();
   this.redirect('/tables');
 

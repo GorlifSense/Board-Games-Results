@@ -9,6 +9,7 @@ const json = require('koa-json');
 const favicon = require('koa-favicon');
 const serve = require('koa-static');
 const koaBetterBody = require('koa-better-body');
+const compress = require('koa-compress');
 const Mongorito = require('mongorito');
 
 // Project dependencies
@@ -21,6 +22,9 @@ const postTables = Tables.postTables;
 
 // logger
 app.use(logger());
+
+// use compression
+app.use(compress());
 
 // response with static
 app.use(favicon('public/favicon.ico'));
