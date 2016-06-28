@@ -7,6 +7,8 @@
     "node": "6.2.1"
   },
   "scripts": {
+    "preversion": "npm test",
+    "version": "vim CHANGELOG.md && git add CHANGELOG.md",
     "postversion": "git push && git push --tags",
     "postinstall": "./node_modules/.bin/bower install",
     "start": "node bin/bg-results",
