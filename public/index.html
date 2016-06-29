@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,11 @@
 
     <!-- Bootstrap -->
     <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- React -->
+    <script src="components/react/react.js"></script>
+    <script src="components/react/react-dom.js"></script>
+    <script src="components/babel/browser.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,6 +27,15 @@
     <a href="/tables">See /tables in MongoDB here</a>
     <br>
     <a href="/create.html">See /create.html here</a>
+
+    <div id="container"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>Save Board Games Results!</h1>,
+        document.getElementById('container')
+      );
+    </script>
+    
 
     <div class="panel panel-default">
 	  <div class="panel-heading">7 Wonders</div>
@@ -193,8 +207,6 @@
 
 	  </div>
 	</div>
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
