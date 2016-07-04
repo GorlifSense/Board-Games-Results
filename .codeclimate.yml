@@ -14,6 +14,8 @@ engines:
     checks:
       strict:
         enabled: false
+  nodesecurity:
+    enabled: true
   fixme:
     enabled: true
     config:
@@ -26,6 +28,7 @@ ratings:
   - "**.js"
   - "**.jsx"
   - "**.css"
+  - "**.html"
   - "**.md"
 exclude_paths:
 - test/
