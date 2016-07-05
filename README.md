@@ -55,14 +55,13 @@ View `raml/` or `spec/` directory for RAML specification
 
 #### Basic routes
 
-| PATH                       | Description       |
-| :-------------             | :-------------    |
-| GET /tables                | List of tables    |
-| POST /tables               | Create new table  |
-| GET /tables/:tableId       | Find table by id  |
-| PUT /tables/:tableId       | Edit table by id  |
-| DELETE /tables/:tableId    | Delete table by id|
-
+| PATH                       | Description        |
+| :-------------             | :-------------     |
+| GET /tables                | List of tables     |
+| POST /tables               | Create new table   |
+| GET /tables/:tableId       | Find table by id   |
+| PUT /tables/:tableId       | Edit table by id   |
+| DELETE /tables/:tableId    | Delete table by id |
 
 ### Tests
 

@@ -9,7 +9,7 @@ const path = require('path');
 const views = require('co-views');
 
 // setup views mapping .html
-// to the swig template engine
+// to the template engine
 
 module.exports = views(path.join(__dirname, '/views'), {
   map: {html: 'swig'}
