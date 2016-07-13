@@ -37,10 +37,12 @@ class Player {
  */
 function generatePlayers(count) {
   const players = [];
+  const TIMES = 1;
 
   while (count) {
+    // Prepare array of Players around the table
     players.push(new Player());
-    count -= 1;
+    count -= TIMES;
   }
   return players;
 }
