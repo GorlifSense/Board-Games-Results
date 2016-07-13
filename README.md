@@ -1,11 +1,12 @@
 # Board-Games-Results
 
-Saving results for 7 Wonders games
+Saving your results for 7 Wonders games in a simple web based application
 
 [![Build Status](https://travis-ci.org/GorlifSense/Board-Games-Results.svg?branch=master)](https://travis-ci.org/GorlifSense/Board-Games-Results)
 [![bitHound Overall Score](https://www.bithound.io/github/GorlifSense/Board-Games-Results/badges/score.svg)](https://www.bithound.io/github/GorlifSense/Board-Games-Results)
 [![Issue Count](https://codeclimate.com/github/GorlifSense/Board-Games-Results/badges/issue_count.svg)](https://codeclimate.com/github/GorlifSense/Board-Games-Results)
 [![codecov](https://codecov.io/gh/GorlifSense/Board-Games-Results/branch/master/graph/badge.svg)](https://codecov.io/gh/GorlifSense/Board-Games-Results)
+[![Dependency Status](https://www.versioneye.com/user/projects/575ce4e17757a00034dc52ef/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/575ce4e17757a00034dc52ef)
 
 ## Quickstart
 
@@ -34,7 +35,7 @@ and all code should be committed to feature branches
 or `development`. We would like to follow here common practices
 [More on Github Flow...](https://guides.github.com/introduction/flow/)
 
-## Code Quality
+### Code Quality
 
 Use `.editorconfig` for your Code Editor to keep code style.  
 
@@ -46,12 +47,14 @@ and pick `<js|html|css>` language type.
 
 Run `npm run eslint` to check common javascript mistakes.  
 
+Run `npm run csslint` to check common css mistakes.  
+
 Run `npm run remark-lint` to check markdown.
 [Read more about rules](https://github.com/wooorm/remark-lint/blob/master/doc/rules.md)
 
 ### API
 
-View `raml/` or `spec/` directory for RAML specification
+View `spec/` directory for RAML specification
 
 #### Basic routes
 

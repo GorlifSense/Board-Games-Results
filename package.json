@@ -23,6 +23,7 @@
     "coveragereport": "open coverage/lcov-report/index.html",
     "check-coverage": "./node_modules/.bin/istanbul check-coverage --statements 10 --functions 10 --lines 10 --branches 10",
     "remark-lint": "./node_modules/.bin/remark *.md docs/*.md -u remark-lint",
+    "csslint": "./node_modules/.bin/csslint public/css",
     "eslint": "./node_modules/.bin/eslint --ignore-path .gitignore ."
   },
   "repository": {
@@ -52,6 +53,7 @@
     "bower": "^1.7.9",
     "co-body": "^4.2.0",
     "co-views": "^2.1.0",
+    "csslint": "^0.10.0",
     "dotenv": "^2.0.0",
     "koa": "^1.2.0",
     "koa-better-body": "^2.0.1",
@@ -74,6 +76,7 @@
     "istanbul": "^0.4.3",
     "js-beautify": "^1.6.3",
     "mocha": "^2.5.3",
+    "mocha-generators": "^1.2.0",
     "pre-commit": "^1.1.3",
     "remark-cli": "^1.0.0"
   },

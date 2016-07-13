@@ -5,21 +5,15 @@ const Mongorito = require('mongorito');
 const tableGenerator = require('./fixtures/tables');
 const tables = require('../controllers/tables');
 
-const winston = require('winston');
+require('mocha-generators').install();
 
-// configure winston
-winston.remove(winston.transports.Console);
-winston.add(winston.transports.Console, {
-  colorize: true,
-  level: 'debug',
-  prettyPrint: true,
-  humanReadableUnhandledException: true
-});
+require('../helpers/logger');
+const winston = require('winston');
 
 describe('Tables controller', () => {
 
   before(() => {
-    Mongorito.connect(process.env.MONGO);
+    Mongorito.connect(process.env.MONGO || 'mongodb://localhost:27017/boardgamesresults');
   });
 
   it('should createTable', () => {
@@ -27,8 +21,30 @@ describe('Tables controller', () => {
       body: tableGenerator()
     };
     winston.debug(tables);
-    let table = tables.add(tables.request);
+    const table = tables.add(tables.request);
+
     winston.debug(table);
+
+    // TODO write actual tests
+    //
+    // const list = tables.list(tables.request);
+    // winston.debug(tables.body);
+    //
+
+  });
+
+  it('should try test generators', function *testGenerator() {
+    tables.request = {
+      body: tableGenerator()
+    };
+    tables.assert = function () {
+      winston.debug('Here assert');
+    };
+    tables.params = {
+      tableId: '5771ba42209301cc089f43d9'
+    };
+    const got = yield tables.get();
+    winston.debug(got);
   });
 
 });
