@@ -47,12 +47,14 @@ and pick `<js|html|css>` language type.
 
 Run `npm run eslint` to check common javascript mistakes.  
 
+Run `npm run csslint` to check common css mistakes.  
+
 Run `npm run remark-lint` to check markdown.
 [Read more about rules](https://github.com/wooorm/remark-lint/blob/master/doc/rules.md)
 
 ### API
 
-View `raml/` or `spec/` directory for RAML specification
+View `spec/` directory for RAML specification
 
 #### Basic routes
 
