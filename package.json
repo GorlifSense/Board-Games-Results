@@ -4,8 +4,9 @@
   "description": "Web app for storing results for 7 Wonders",
   "main": "app.js",
   "engines": {
-    "node": ">6"
+    "node": ">=4"
   },
+  "os" : [ "!win32" ],
   "scripts": {
     "preversion": "npm test",
     "version": "vim CHANGELOG.md && git add CHANGELOG.md",
@@ -63,7 +64,6 @@
     "koa-static": "^2.0.0",
     "mongorito": "^2.1.2",
     "swig": "^1.4.2",
-    "uglify-js": "^2.7.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
