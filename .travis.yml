@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - "6"
-before_script:
-  - npm run coverage
+services:
+  - mongodb
 after_script:
   - npm run codeclimate
 after_success:

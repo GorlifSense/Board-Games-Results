@@ -13,7 +13,7 @@
     "postversion": "git push && git push --tags",
     "postinstall": "./node_modules/.bin/bower install",
     "start": "node bin/bg-results",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test": "npm run coverage",
     "mocha": "./node_modules/.bin/mocha",
     "beautify": "./node_modules/.bin/js-beautify",
     "unstaged": "git status --porcelain",
