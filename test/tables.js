@@ -6,6 +6,7 @@ const tableGenerator = require('./fixtures/tables');
 const tables = require('../controllers/tables');
 
 require('mocha-generators').install();
+// const fakeDb  = require('tingodb')(helpers.tingoDb.config); // TODO
 
 require('../helpers/logger');
 const winston = require('winston');
