@@ -10,5 +10,5 @@ after_success:
 notifications:
   slack:
     rooms:
-      weirdunicorn:zYbooEy22vfBloHorKZV5XPE#development
+      gorlifsense:S7RWHqp3eUYiYBusZOzXytvR#development
     on_success: change
