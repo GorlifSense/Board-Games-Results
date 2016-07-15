@@ -6,7 +6,9 @@
   "engines": {
     "node": ">=4"
   },
-  "os" : [ "!win32" ],
+  "os": [
+    "!win32"
+  ],
   "scripts": {
     "preversion": "npm test",
     "version": "vim CHANGELOG.md && git add CHANGELOG.md",
@@ -70,13 +72,14 @@
   },
   "devDependencies": {
     "bithound": "^1.3.0",
+    "chai": "*",
     "chance": "^1.0.3",
     "codeclimate-test-reporter": "^0.3.2",
     "eslint": "^2.12.0",
     "istanbul": "^0.4.3",
     "js-beautify": "^1.6.3",
-    "mocha": "^2.5.3",
-    "mocha-generators": "^1.2.0",
+    "mocha": "*",
+    "mocha-generators": "*",
     "pre-commit": "^1.1.3",
     "remark-cli": "^1.0.0"
   },

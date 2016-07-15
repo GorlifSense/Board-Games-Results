@@ -2,6 +2,7 @@
 
 const parse = require('co-body');
 const winston = require('winston');
+const _ = require('lodash'); // eslint-disable-line id-length
 
 const render = require('../../render');
 const Table = require('./model');
@@ -14,6 +15,7 @@ class CommonResponse {
 }
 
 exports.list = function *listTables() {
+  this.status = 200;
   this.body = yield Table.all();
 };
 
@@ -29,6 +31,7 @@ exports.add = function *createTable() {
   const response = new CommonResponse();
 
   response.data = yield table.save();
+  this.status = 200;
   winston.silly(response);
   this.body = response;
 };
@@ -46,6 +49,7 @@ exports.get = function *getOne() {
   } else {
     response.message = 'Table not found';
     this.status = response.status = 404;
+    response.success = false;
   }
   winston.silly(response);
   this.body = response;
@@ -59,18 +63,23 @@ exports.edit = function *editTable() {
   this.assert(params, 400, 'Params are empty');
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  this.assert(table, 404, 'Table not found');
-
-  winston.silly(table);
-  if (body.description) {
-    table.set('description', body.description);
-  }
-  if (body.game) {
-    table.set('game', body.game);
-  }
   const response = new CommonResponse();
 
-  response.data = yield table.save();
+  if (table) {
+    if (body.description) {
+      table.set('description', body.description);
+    }
+    if (body.game) {
+      table.set('game', body.game);
+    }
+
+    response.data = yield table.save();
+  } else {
+    this.status = response.status = 404;
+    response.success = false;
+    response.message = 'Table not found';
+  }
+
   winston.silly(response);
   this.body = response;
 };
@@ -83,15 +92,18 @@ exports.remove = function *removeTable() {
 
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  this.assert(table, 404, 'Table is removed');
-
-  table.set('deleted', true);
-
   const response = new CommonResponse();
 
-  const removal = yield table.remove();
+  if (_.isEmpty(table)) {
+    this.status = response.status = 404;
+    response.success = false;
+    response.message = 'Table not found, it could be removed before';
+  } else {
+    table.set('deleted', true);
+    const removal = yield table.remove();
+    response.data = removal;
+  }
 
-  response.data = removal;
   winston.silly(response);
   this.body = response;
 };
