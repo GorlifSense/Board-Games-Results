@@ -94,14 +94,14 @@ exports.remove = function *removeTable() {
 
   const response = new CommonResponse();
 
-  if (_.isEmpty(table)) {
-    this.status = response.status = 404;
-    response.success = false;
-    response.message = 'Table not found, it could be removed before';
-  } else {
+  if (table) {
     table.set('deleted', true);
     const removal = yield table.remove();
     response.data = removal;
+  } else if (_.isEmpty(table)) {
+    this.status = response.status = 404;
+    response.success = false;
+    response.message = 'Table not found, it could be removed before';
   }
 
   winston.silly(response);
