@@ -4,15 +4,18 @@
   "description": "Web app for storing results for 7 Wonders",
   "main": "app.js",
   "engines": {
-    "node": "6.2.1"
+    "node": ">=4"
   },
+  "os": [
+    "!win32"
+  ],
   "scripts": {
     "preversion": "npm test",
     "version": "vim CHANGELOG.md && git add CHANGELOG.md",
     "postversion": "git push && git push --tags",
     "postinstall": "./node_modules/.bin/bower install",
     "start": "node bin/bg-results",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test": "npm run coverage",
     "mocha": "./node_modules/.bin/mocha",
     "beautify": "./node_modules/.bin/js-beautify",
     "unstaged": "git status --porcelain",
@@ -39,8 +42,8 @@
   "author": "Gorlif Sense <git@gorlifsense.com> (http://gorlifsense.com)",
   "contributors": [
     "Glib Ischenko <glib@gorlifsense.com> (http://fleischer.gorlifsense.com)",
-    "Belrestro",
-    "SolarLumenar"
+    "Belrestro <belrestro@gorlifsense.com>",
+    "SolarLumenar <solar@gorlifsense.com>"
   ],
   "license": "ISC",
   "bugs": {
@@ -48,15 +51,20 @@
   },
   "homepage": "https://github.com/GorlifSense/Board-Games-Results#readme",
   "dependencies": {
+    "boom": "^3.2.1",
     "bower": "^1.7.9",
     "co-body": "^4.2.0",
     "co-views": "^2.1.0",
-    "csslint": "^0.10.0",
+    "csslint": "^1",
     "dotenv": "^2.0.0",
     "koa": "^1.2.0",
+    "koa-better-body": "^2.0.1",
+    "koa-compress": "^1.0.9",
     "koa-favicon": "^1.2.1",
+    "koa-json": "^1.1.3",
     "koa-logger": "^1.3.0",
     "koa-route": "^2.4.2",
+    "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
     "mongorito": "^2.1.2",
     "swig": "^1.4.2",
@@ -64,11 +72,15 @@
   },
   "devDependencies": {
     "bithound": "^1.3.0",
+    "chai": ">=3.5",
+    "chance": "^1.0.3",
     "codeclimate-test-reporter": "^0.3.2",
+    "csslint": "^1.0.1",
     "eslint": "^2.12.0",
     "istanbul": "^0.4.3",
     "js-beautify": "^1.6.3",
-    "mocha": "^2.5.3",
+    "mocha": ">=2",
+    "mocha-generators": ">=1.2",
     "pre-commit": "^1.1.3",
     "remark-cli": "^1.0.0"
   },

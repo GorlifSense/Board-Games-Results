@@ -11,6 +11,7 @@ engines:
     enabled: true
   eslint:
     enabled: true
+    channel: "eslint-2"
     checks:
       strict:
         enabled: false

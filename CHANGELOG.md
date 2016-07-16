@@ -1,17 +1,32 @@
 Release notes for Board Games Results
 ====================================
 
+Planned in next version
+------------------
+
+*   Init Angular2 app
+
+v0.1.0
+------------------
+
+*   Unsecured CRUD API with Koa v1:
+Create, Read, Update, Delete on Table collection
+
 v0.0.4
 ------------------
 
 *   Placed greeting line
-*   Removed static html template test on main page.
+*   Removed static HTML template test on main page.
 *   Remove unused index.html scripts
 *   Remove support for IE
 
 v0.0.3
 ------------------
 
+*   Using ESLint v2
+*   Added Codecov config, Remarked lint, CSSLint, .nvmrc
+*   bitHound
+*   configured Pull Request hooks
 *   RAML docs
 *   [#11 Fix tables template](https://github.com/GorlifSense/Board-Games-Results/pull/11)
 
