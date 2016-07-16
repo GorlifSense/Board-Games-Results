@@ -6,6 +6,11 @@ Planned in next version
 
 *   Init Angular2 app
 
+v0.1.1
+------------------
+
+*   Added lodash dependency to prevent application 503 error
+
 v0.1.0
 ------------------
 
