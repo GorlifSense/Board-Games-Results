@@ -58,6 +58,9 @@ View `spec/` directory for RAML specification
 
 #### Basic routes
 
+Current routes state are unsecured
+and not all error messages included in response
+
 | PATH                       | Description        |
 | :-------------             | :-------------     |
 | GET /tables                | List of tables     |
