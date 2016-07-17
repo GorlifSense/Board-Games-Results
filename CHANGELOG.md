@@ -6,6 +6,11 @@ Planned in next version
 
 *   Init Angular2 app
 
+v0.1.2
+------------------
+
+*   Updated Eslint to v3
+
 v0.1.1
 ------------------
 
