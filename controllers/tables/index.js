@@ -115,8 +115,17 @@ exports.remove = function *removeTable() {
 function *getTables() {
 
   const tables = yield Table.all();
-
+  tables.forEach(function(table){
+    table.attributes.game.players.forEach(function(player){
+      player.situation = Object.keys(player.situation).reduce(function(a,b){
+        a = typeof a === 'number' ? a : Number(player.situation[a]);
+        b = typeof b === 'number' ? b : Number(player.situation[b]);
+        return a + b;
+      });
+    });
+  });
   winston.silly(tables);
+
   this.body = yield render('tables', {tables});
 
 }

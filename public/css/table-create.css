@@ -1,12 +1,9 @@
 .player-none {
 	display: none;
 }
-#add-player {
-	margin-right:20px;
-}
 #error {
     box-sizing: border-box;
-    max-width: calc(100% - 20px);
+    max-width: 100%;
     max-height: 0px;
     padding:0px 10px;
     margin-bottom:0px;
@@ -26,8 +23,8 @@
     max-height: 300px;
 }
 textarea {
-	max-width: calc(100% - 20px);
-	width: calc(100% - 20px);
+	max-width: 100%;
+	width: 100%;
 	max-height:200px;
 }
 input.invalid {
@@ -41,7 +38,7 @@ input[type=number] {
 .player {
 	position: relative;
     background-color: #F5F5F5;
-    margin: 10px 20px 10px 0px;
+    margin: 10px 0;
     padding: 10px;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
@@ -64,20 +61,20 @@ input[type=number] {
 	opacity: 1;
 }
 @-webkit-keyframes playerAppear {
-	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
-	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
+	from {border-width:0px;margin:0;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 0;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @-o-keyframes playerAppear {
-	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
-	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
+	from {border-width:0px;margin:0;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 0;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @-moz-keyframes playerAppear {
-	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
-	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
+	from {border-width:0px;margin:0;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 0;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 @keyframes playerAppear {
-	from {border-width:0px;margin:0px 20px 0 0px;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
-	to {border-width:1px;margin:10px 20px 10px 0px;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
+	from {border-width:0px;margin:0;padding:0 10px;max-height: 0px;opacity: 0;overflow: hidden;}
+	to {border-width:1px;margin:10px 0;padding:10px;max-height:300px;opacity: 1;overflow: visible;}
 }
 
 @-webkit-keyframes playerFade {
