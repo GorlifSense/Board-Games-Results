@@ -1,12 +1,12 @@
 Release notes for Board Games Results
 ====================================
 
-Planned in next version
+Planned in next minor version
 ------------------
 
 *   Init Angular2 app
 
-v0.1.2
+Planned in next patch version
 ------------------
 
 *   Updated Eslint to v3

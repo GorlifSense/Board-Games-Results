@@ -226,8 +226,8 @@ rules:
   callback-return:
     - 1
   keyword-spacing:
-    # TODO change to 2
-    - 1
+    # NOTE changed from 1
+    - 2
   no-confusing-arrow: 1
 
   quote-props:
