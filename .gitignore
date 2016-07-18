@@ -44,3 +44,7 @@ public/components
 
 # Env variables file
 .env
+
+# Text editors/IDE specifi
+.swp
+.idea/
