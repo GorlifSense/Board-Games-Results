@@ -25,6 +25,8 @@ You can view application in development mode launched
 
 ## Development
 
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/Fleischers/board-games-results)
+
 Project has guidelines to follow.
 Be ready to check output of pre-commit hooks
 to keep consistency throughout all files.
