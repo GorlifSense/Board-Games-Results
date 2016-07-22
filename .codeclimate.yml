@@ -22,10 +22,14 @@ engines:
       - FIXME
       - TODO
       - XXX
+      - HACK
+      - FixMe
+      - fixme
 ratings:
   paths:
   - "**.js"
   - "**.jsx"
+  - "**.html"
   - "**.css"
   - "**.md"
 exclude_paths:
