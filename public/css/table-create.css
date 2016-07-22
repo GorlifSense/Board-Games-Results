@@ -1,4 +1,4 @@
-.player-none {
+ .player-none {
 	display: none;
 }
 #error {
@@ -32,8 +32,8 @@ input.invalid {
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(173,0,0,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(173,0,0,.6);
 }
-input[type=number] {
-	padding:6px 0 6px 6px!important;
+.form-group input[type=number] {
+	padding:6px 0 6px 6px;
 }
 .player {
 	position: relative;

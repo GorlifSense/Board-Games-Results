@@ -113,6 +113,7 @@
 
 				// NOTE: in version v0.0.1 simple HTML POST will do fine
 				$.post('/tables', object);
+				window.location.href = '/tables';
 			} else {
 				errorElement.className = "active";
 				errorElement.innerHTML = error;

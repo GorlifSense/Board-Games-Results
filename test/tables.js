@@ -82,4 +82,12 @@ describe('Tables controller', () => {
 
   });
 
+  it('should recuce all results to one number', function *test6() {
+    yield tables.getTables();
+    winston.debug(tables[0].game.players.situation);
+    tables[0].game.players.situation.should.be.an('number');
+    winston.debug('player 1 situation == ', tables[0].game.players.situation);
+
+  });
+
 });
