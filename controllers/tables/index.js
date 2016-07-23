@@ -143,6 +143,7 @@ function *getTables() {
 
   winston.silly(tables);
 
+  this.data = tables;
   this.body = yield render('tables', {tables});
 
 }

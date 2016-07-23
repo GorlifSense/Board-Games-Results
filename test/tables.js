@@ -82,11 +82,12 @@ describe('Tables controller', () => {
 
   });
 
-  it('should recuce all results to one number', function *test6() {
+  it('should reduce all results to one number', function *test6() {
+    
     yield tables.getTables();
-    winston.debug(tables[0].game.players.situation);
-    tables[0].game.players.situation.should.be.an('number');
-    winston.debug('player 1 situation == ', tables[0].game.players.situation);
+    const firstPlayer = tables.data[0].attributes.game.players[0];
+    firstPlayer.situation.should.be.an('number');
+    winston.debug('player 1 situation == ', firstPlayer.situation);
 
   });
 
