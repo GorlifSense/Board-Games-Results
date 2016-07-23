@@ -4,13 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Create table</title>
 	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/table.css"/>
 	<link rel="stylesheet" href="css/table-create.css"/>
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<div class="container">
-		<h1>New table</h1>
+	<nav>
+      <a href="/" class="btn btn-default">Home</a>
+      <a href="/tables" class="btn btn-default">Tables</a>
+      <a href="/create.html" class="btn btn-success">Add table</a>
+    </nav>
+	<section id="content">
+		<input type="text" id="js-table-name" value="New table"/>
 		 <div class="form-group">
 		 	<label>Description</label>
 		 	<textarea class="form-control"></textarea>
@@ -126,10 +132,11 @@
 		 		</div>
 		 		<div class="col-md-12">
 		 			<button id="confirm-table" class="btn btn-success">Confirm</button>
+		 			<a href="/" class="btn btn-danger">Back</a>
 		 			<button id="add-player" class="btn btn-primary pull-right">+</button>
 		 		</div>
 		 	</div>
 		 </div>
-	</div>
+	</section>
 </body>
 </html>
