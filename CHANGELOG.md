@@ -6,10 +6,11 @@ Planned in next minor version
 
 *   Init Angular2 app
 
-Planned in next patch version
+v0.1.2
 ------------------
 
 *   Updated Eslint to v3
+*   Visual fixes by Andrew
 
 v0.1.1
 ------------------
