@@ -1,6 +1,12 @@
  .player-none {
 	display: none;
 }
+#js-table-name {
+    font-size:36px;
+    border:0;
+    outline:none;
+    background: transparent;
+}
 #error {
     box-sizing: border-box;
     max-width: 100%;
