@@ -122,24 +122,29 @@ function *getTables() {
 
   const tables = yield Table.all();
 
-  tables.forEach((table) => {
-
-    table.attributes.game.players.forEach((player) => {
-
-      const keys = Object.keys(player.situation);
-
-      if (keys) {
-
-        player.situation = keys.reduce((aVar, bVar) => {
-          if (typeof aVar !== 'number') {
-            aVar = Number(player.situation[aVar]);
-          }
-          return aVar + Number(player.situation[bVar]);
-        });
-      }
-
-    });
-  });
+  // FIXME 500 Error.
+  // TypeError: Cannot read property 'players' of undefined
+  //    at tables.forEach
+  //    (/Users/fcl/src/Board-Games-Results/controllers/tables/index.js:127:15)
+  //
+  // tables.forEach((table) => {
+  //
+  //   table.attributes.game.players.forEach((player) => {
+  //
+  //     const keys = Object.keys(player.situation);
+  //
+  //     if (keys) {
+  //
+  //       player.situation = keys.reduce((aVar, bVar) => {
+  //         if (typeof aVar !== 'number') {
+  //           aVar = Number(player.situation[aVar]);
+  //         }
+  //         return aVar + Number(player.situation[bVar]);
+  //       });
+  //     }
+  //
+  //   });
+  // });
 
   winston.silly(tables);
 

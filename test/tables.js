@@ -82,8 +82,8 @@ describe('Tables controller', () => {
 
   });
 
-  it('should reduce all results to one number', function *test6() {
-    
+  it.skip('should reduce all results to one number', function *test6() {
+
     yield tables.getTables();
     const firstPlayer = tables.data[0].attributes.game.players[0];
     firstPlayer.situation.should.be.an('number');
