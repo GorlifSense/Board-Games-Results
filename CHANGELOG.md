@@ -6,6 +6,11 @@ Planned in next minor version
 
 *   Init Angular2 app
 
+v0.1.3
+------------------
+
+*   Revert visual fixes in /tables
+
 v0.1.2
 ------------------
 
