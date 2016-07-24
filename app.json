@@ -1,0 +1,23 @@
+{
+  "name": "Board-Games-Results",
+  "scripts": {
+  },
+  "env": {
+    "MONGO": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "librato"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
