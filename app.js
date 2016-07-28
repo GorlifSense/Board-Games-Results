@@ -17,23 +17,31 @@ const Tables = require('./controllers/tables');
 const router = require('./router');
 
 // Internal variables
+// @deprecated
 const getTables = Tables.getTables;
 const postTables = Tables.postTables;
 
 // logger
+// TODO use external log provider https://trello.com/c/IslYoZ2u
 app.use(logger());
 
 // use compression
 app.use(compress());
 
-// response with static
+/**
+ * response with static
+ * Serving files will be @deprecated after Angular2 release
+ */
 app.use(favicon('public/favicon.ico'));
 app.use(serve('public', {
   maxage: 10000
 }));
 
 
-// NOTE soon to be @deprecated
+/**
+ * Generate and render pages with swig engine
+ * NOTE Will be @deprecated after Angular2 release
+ */
 app.use(route.get('/tables', getTables));
 app.use(route.post('/tables', postTables));
 
@@ -49,8 +57,13 @@ api.use(json());
 router.use(koaBetterBody());
 
 // TODO change this to more general
-api.get('/', function* () {
-  this.body = {success: true, status: 200, message: 'Read the docs of API'};
+api.get('/', function* apiRoot() {
+  this.body = {
+    success: true,
+    status: 200,
+    message: 'Read the docs of API',
+    link: 'http://gorlifsense.com/Board-Games-Results'
+  };
 });
 
 api.use('/v:version', router.routes());

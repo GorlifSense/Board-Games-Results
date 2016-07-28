@@ -4,7 +4,15 @@ Release notes for Board Games Results
 Planned in next minor version
 ------------------
 
-* Init Angular2 app
+* Support Angular2 app and remove @deprecated
+
+v0.1.4
+------------------
+* Prepare @depracted methods for deletion
+* Update remark-lint rules
+* Heroku generated app.json added to support pipelines
+* Fix 'resource' issue in RAML. Additional description to API
+* VersionEye now works for teams and as integration
 
 v0.1.3
 ------------------
