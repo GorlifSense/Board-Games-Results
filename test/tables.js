@@ -67,6 +67,7 @@ describe('Tables controller', () => {
     tables.params = {
       tableId: '5771ba42209301cc089f43d9'
     };
+    tables.body.createdBy = '1377ba42209301cc089f43d9';
     yield tables.edit();
 
     should.exist(tables.body.message);

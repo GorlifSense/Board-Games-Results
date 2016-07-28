@@ -11,7 +11,7 @@ v0.1.5
 ------------------
 
 * Remove unnecessary create.html template
-* Add createdBy property to Table creation
+* Add createdBy property to Table edit and creation
 * Do not ignore tests in Code Climate
 * Update test table generator to upcoming Table structure
 * Updated RAML for upcoming Table structure

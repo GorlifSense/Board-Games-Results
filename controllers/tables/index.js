@@ -32,7 +32,7 @@ exports.add = function *createTable() {
   const table = new Table({
     description: body.description,
     game: body.game,
-    createdBy: body.createdBy
+    createdBy: 'anonymous' // TODO Change after User logic is implemented
   });
   const response = new CommonResponse();
 
