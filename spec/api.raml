@@ -1,9 +1,12 @@
 #%RAML 1.0
-title: Board Games Results API
-baseUri: http://boardgamesresults.herokuapp.com/api/{version}
+title: Board Games Results
+baseUri: http://bgr.gorlifsense.com/api/{version}
 version: v1
 mediaType:  application/json
 protocols: [ HTTP ]
+description: |
+  API to provide ability to store and manipulate game boards history.
+  It has CRUD over Tables model
 
 # Declare schemas and types of data
 types:
@@ -66,14 +69,14 @@ resourceTypes:
   # Multiple items
   collection:
     usage: This resourceType should be used for any collection of items
-    description: Collection of available <<resource>> in database
+    description: Collection of available <<resourcePathName>> in database
     get:
       description: Get a list of <<resourcePathName>>.
       responses:
         200:
           body:
             application/json:
-              type: <<resource>>
+              type: <<resourcePathName>>
               example: <<exampleCollection>>
     post:
       description: |
