@@ -5,10 +5,21 @@ Planned in next minor version
 ------------------
 
 * Support Angular2 app and remove @deprecated
+* Finish changed Table structure
+
+v0.1.5
+------------------
+
+* Remove unnecessary create.html template
+* Add createdBy property to Table creation
+* Do not ignore tests in Code Climate
+* Update test table generator to upcoming Table structure
+* Updated RAML for upcoming Table structure
 
 v0.1.4
 ------------------
-* Prepare @depracted methods for deletion
+
+* Prepare @deprecated methods for deletion
 * Update remark-lint rules
 * Heroku generated app.json added to support pipelines
 * Fix 'resource' issue in RAML. Additional description to API

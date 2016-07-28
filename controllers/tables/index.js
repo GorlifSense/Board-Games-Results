@@ -31,7 +31,8 @@ exports.add = function *createTable() {
   this.assert(body.game, badRequest, 'Body.game is empty');
   const table = new Table({
     description: body.description,
-    game: body.game
+    game: body.game,
+    createdBy: body.createdBy
   });
   const response = new CommonResponse();
 
@@ -76,6 +77,9 @@ exports.edit = function *editTable() {
     }
     if (body.game) {
       table.set('game', body.game);
+    }
+    if (body.createdBy) {
+      table.set('createdBy', body.createdBy);
     }
 
     response.data = yield table.save();
