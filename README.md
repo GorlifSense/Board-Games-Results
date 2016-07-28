@@ -6,7 +6,7 @@ Saving your results for 7 Wonders games in a simple web based application
 [![bitHound Overall Score](https://www.bithound.io/github/GorlifSense/Board-Games-Results/badges/score.svg)](https://www.bithound.io/github/GorlifSense/Board-Games-Results)
 [![Issue Count](https://codeclimate.com/github/GorlifSense/Board-Games-Results/badges/issue_count.svg)](https://codeclimate.com/github/GorlifSense/Board-Games-Results)
 [![codecov](https://codecov.io/gh/GorlifSense/Board-Games-Results/branch/master/graph/badge.svg)](https://codecov.io/gh/GorlifSense/Board-Games-Results)
-[![Dependency Status](https://www.versioneye.com/user/projects/575ce4e17757a00034dc52ef/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/575ce4e17757a00034dc52ef)
+[![Dependency Status](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572)
 
 ## Quickstart
 
