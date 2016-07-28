@@ -16,6 +16,10 @@ v0.1.5
 * Update test table generator to upcoming Table structure
 * Updated RAML for upcoming Table structure
 
+*Known Issues*:
+
+- Found design problem in current model Test Suites
+
 v0.1.4
 ------------------
 

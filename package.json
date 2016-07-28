@@ -1,6 +1,6 @@
 {
   "name": "board-games-results",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Web app for storing results for 7 Wonders",
   "main": "app.js",
   "engines": {
