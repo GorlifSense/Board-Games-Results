@@ -11,12 +11,10 @@ const ok = 200;
 const badRequest = 400;
 const notFound = 404;
 
-class CommonResponse {
-  constructor() {
-    this.success = true;
-    this.status = ok;
-  }
-}
+const CommonResponse = {
+  success: true,
+  status: ok
+};
 
 
 exports.list = function *listTables() {
@@ -30,11 +28,12 @@ exports.add = function *createTable() {
   this.assert(body, badRequest, 'Body is empty');
   this.assert(body.game, badRequest, 'Body.game is empty');
   const table = new Table({
+    _id: body._id, // HACK to perform tests over edit tables
     description: body.description,
     game: body.game,
     createdBy: 'anonymous' // TODO Change after User logic is implemented
   });
-  const response = new CommonResponse();
+  const response = _.cloneDeep(CommonResponse);
 
   response.data = yield table.save();
   this.status = ok;
@@ -48,7 +47,7 @@ exports.get = function *getOne() {
   this.assert(params, badRequest, 'Params are empty');
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  const response = new CommonResponse();
+  const response = _.cloneDeep(CommonResponse);
 
   if (table) {
     response.data = table;
@@ -65,11 +64,14 @@ exports.edit = function *editTable() {
   const body = this.body;
   const params = this.params;
 
+  winston.info('Body and params', body, params);
+
   this.assert(body, badRequest, 'Body is empty');
   this.assert(params, badRequest, 'Params are empty');
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  const response = new CommonResponse();
+  winston.info('table is', table);
+  const response = _.cloneDeep(CommonResponse);
 
   if (table) {
     if (body.description) {
@@ -101,7 +103,7 @@ exports.remove = function *removeTable() {
 
   const table = yield Table.where('_id', params.tableId).findOne();
 
-  const response = new CommonResponse();
+  const response = _.cloneDeep(CommonResponse);
 
   if (table) {
     table.set('deleted', true);
