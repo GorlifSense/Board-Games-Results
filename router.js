@@ -1,20 +1,17 @@
 'use strict';
 
 const router = require('koa-router')();
-const winston = require('winston');
-const Boom = require('boom');
-
 const tables = require('./controllers/tables');
 
 const response = {
   'success': true,
-  'test': true,
   'status': 200
 };
 
-router.get('/', function* () {
-  winston.debug(this.params);
-  response.message = 'router get version ' + this.params.version + ' test';
+// TODO change to more generic
+router.get('/', function* versionHint() {
+
+  response.message = 'Board-Games-Results API version ' + this.params.version;
   this.body = response;
 
 });
