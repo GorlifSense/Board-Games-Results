@@ -75,3 +75,18 @@ and not all error messages included in response
 
 `npm test` - to run tests  
 Look into `open coverage/lcov-report/index.html` to check coverage report
+
+## Contributing
+
+1. Fork and clone it
+2. Install dependencies: `npm install`
+3. Create a feature branch: `git checkout -b new-feature`
+4. Commit changes: `git commit -am 'Added a feature'`
+5. Run unit tests: `npm test`
+6. Run static code analysis `npm run eslint`
+7. Push to the remote branch: `git push origin new-feature`
+8. Create a new [Pull Request](https://github.com/GorlifSense/Board-Games-Results/pull/new/master)
+
+## License
+
+Code released under the [ISC license](https://github.com/GorlifSense/Board-Games-Results/blob/master/LICENSE).
