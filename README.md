@@ -16,12 +16,12 @@ Instead, default `mongodb://localhost/boardgamesresults` is used.
 `npm install`  
 `npm start`  
 
-Here it is. You should have running it locally on `http://localhost:3000`
+Here it is. You should have running it locally on `http://localhost:3001`
 
 ### Demo
 
 You can view application in development mode launched
-[here...](https://boardgamesresults.herokuapp.com)
+[here…](https://boardgamesresults.herokuapp.com)
 
 ## Development
 
@@ -35,7 +35,7 @@ We have Continuos Deployment enabled and to avoid broken commits,
 `master` branch will be frozen
 and all code should be committed to feature branches
 or `development`. We would like to follow here common practices
-[More on Github Flow...](https://guides.github.com/introduction/flow/)
+[More on Github Flow…](https://guides.github.com/introduction/flow/)
 
 ### Code Quality
 
@@ -45,18 +45,19 @@ Use `npm run beautify -- <filename> -r --type <js|html|css>`
 for auto format code.
 Replace `<filename>` with file to beautify
 and pick `<js|html|css>` language type.
-[Read more options...](https://www.npmjs.com/package/js-beautify)
+[Read more options…](https://www.npmjs.com/package/js-beautify)
 
 Run `npm run eslint` to check common javascript mistakes.  
 
 Run `npm run csslint` to check common css mistakes.  
 
 Run `npm run remark-lint` to check markdown.
-[Read more about rules](https://github.com/wooorm/remark-lint/blob/master/doc/rules.md)
+[Read more about rules…](https://github.com/wooorm/remark-lint/blob/master/doc/rules.md)
 
 ### API
 
-View `spec/` directory for RAML specification
+View `spec/` directory for most recent RAML specification.
+[HTML generated version available…](http://gorlifsense.com/Board-Games-Results/)
 
 #### Basic routes
 
