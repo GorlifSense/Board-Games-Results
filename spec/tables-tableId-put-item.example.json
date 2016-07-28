@@ -1,40 +1,81 @@
 {
+  "_id": "575dce66684df0fe05bade8f",
   "game": {
     "title": "7 Wonders",
     "players": [
       {
-        "nickname": "GreenFalcon",
+        "fullname": "GreenFalcon",
+        "userId": "575dce77784df0fe05bade8f",
         "city": {
-          "name": "Gizah",
-          "side": "B"
+          "name": "Alexandria",
+          "side": "A"
         },
         "situation": {
-          "military": 0,
-          "gold": 8,
-          "wonder": 3,
-          "culture": 0,
-          "trade": 6,
-          "guild": 4,
-          "science": 36
+          "military": {
+            "score": -6
+          },
+          "gold": {
+            "coins": 10,
+            "score": 3
+          },
+          "wonder": {
+            "score": 3
+          },
+          "culture": {
+            "score": 0
+          },
+          "trade": {
+            "score": 5
+          },
+          "guild": {
+            "score": 5
+          },
+          "science": {
+            "cog": 1,
+            "tablet": 1,
+            "compass": 1,
+            "score": 10
+          },
+          "total": 20
         }
       },
       {
-        "nickname": "Aragorn",
+        "fullname": "Aragorn",
         "city": {
           "name": "Babylon",
-          "side": "B"
+          "side": "A"
         },
         "situation": {
-          "military": 6,
-          "gold": 0,
-          "wonder": 0,
-          "culture": 18,
-          "trade": 5,
-          "guild": 9,
-          "science": 2
+          "military": {
+            "score": 6
+          },
+          "gold": {
+            "coins": 2,
+            "score": 0
+          },
+          "wonder": {
+            "score": 0
+          },
+          "culture": {
+            "score": 18
+          },
+          "trade": {
+            "score": 5
+          },
+          "guild": {
+            "score": 9
+          },
+          "science": {
+            "cog": 1,
+            "tablet": 1,
+            "compass": 0,
+            "score": 2
+          },
+          "total": 40
         }
       }
     ]
   },
-  "description": "This was created with POST request"
+  "createdBy": "575dce77784df0fe05bade8f",
+  "description": "This game was played only with two players, strange though"
 }
