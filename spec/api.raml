@@ -10,6 +10,22 @@ description: |
 
 # Declare schemas and types of data
 types:
+  user:
+    type: object
+    description: Single user registered to service
+    properties:
+      _id?: string
+      created_at?:
+        type: datetime
+        example: 2016-02-28T16:41:41.090Z
+      updated_at?:
+        type: datetime
+        example: 2016-02-28T16:41:41.090Z
+      nickname?: string
+      fullname?: string
+      password: string
+      email: string
+      admin: boolean
   tables:
     type: table[]
     description: This is list of tables.
@@ -26,6 +42,9 @@ types:
         type: datetime
         example: 2016-02-28T16:41:41.090Z
       description?: string
+      createdBy:
+        type: string
+        description: User who created this table
       game: Game
   Game:
     type: object
@@ -37,20 +56,36 @@ types:
     type: object
     description: Person who played a game.
     properties:
-      nickname: string
+      id:
+        type: number
+        description: Place of player in associative map array
+      userId?:
+        type: string
+        description: Foreign key of User collection
+      fullname?: string
       situation: Situation
       city: City
   Situation:
     type: object
     description: Specific set of state at the end of the game to store.
     properties:
-      military: number
-      gold: number
-      wonder: number
-      culture: number
-      trade: number
-      guild: number
-      science: number
+      military: Scoring
+      gold: Scoring
+      wonder: Scoring
+      culture: Scoring
+      trade: Scoring
+      guild: Scoring
+      science: Scoring
+      total: number
+  Scoring:
+    type: object
+    description: Score for specific victory points
+    properties:
+      score: number
+      coins?: number
+      cog?: number
+      tablet?: number
+      compass?: number
   City:
     type: object
     properties:
