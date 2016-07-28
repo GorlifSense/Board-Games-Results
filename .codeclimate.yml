@@ -32,5 +32,3 @@ ratings:
   - "**.html"
   - "**.css"
   - "**.md"
-exclude_paths:
-- test/

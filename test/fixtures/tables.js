@@ -5,7 +5,7 @@ const chance = require('chance')();
 
 class Player {
   constructor() {
-    this.nickname = chance.first();
+    this.fullname = chance.first();
     this.city = {
       name: chance.pickone([
         'Gizah',
@@ -19,13 +19,31 @@ class Player {
       side: chance.pickone(['A', 'B'])
     };
     this.situation = {
-      'military': chance.integer(),
-      'gold': chance.integer(),
-      'wonder': chance.integer(),
-      'culture': chance.integer(),
-      'trade': chance.integer(),
-      'guild': chance.integer(),
-      'science': chance.integer()
+      'military': {
+        'score': chance.integer()
+      },
+      'gold': {
+        'coins': chance.integer(),
+        'score': chance.integer()
+      },
+      'wonder': {
+        'score': chance.integer()
+      },
+      'culture': {
+        'score': chance.integer()
+      },
+      'trade': {
+        'score': chance.integer()
+      },
+      'guild': {
+        'score': chance.integer()
+      },
+      'science': {
+        'cog': chance.integer(),
+        'tablet': chance.integer(),
+        'compass': chance.integer(),
+        'score': chance.integer()
+      }
     };
   }
 }
