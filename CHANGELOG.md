@@ -18,7 +18,7 @@ v0.1.5
 
 *Known Issues*:
 
-- Found design problem in current model Test Suites
+* Found design problem in current model Test Suites
 
 v0.1.4
 ------------------
@@ -49,7 +49,7 @@ v0.1.0
 ------------------
 
 * Unsecured CRUD API with Koa v1:
-Create, Read, Update, Delete on Table collection
+  Create, Read, Update, Delete on Table collection
 
 v0.0.4
 ------------------
