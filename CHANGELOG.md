@@ -58,7 +58,7 @@ v0.1.0
 ------------------
 
 * Unsecured CRUD API with Koa v1:
-Create, Read, Update, Delete on Table collection
+  Create, Read, Update, Delete on Table collection
 
 v0.0.4
 ------------------
