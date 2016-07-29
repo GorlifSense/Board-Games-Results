@@ -4,6 +4,7 @@
       "no-multiple-toplevel-headings": true,
       "list-item-bullet-indent": false,
       "list-item-indent": false,
+      "ordered-list-marker-value": "ordered",
       "maximum-line-length": 79
     }
   }
