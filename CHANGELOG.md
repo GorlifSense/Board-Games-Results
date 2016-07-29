@@ -7,6 +7,15 @@ Planned in next minor version
 * Support Angular2 app and remove @deprecated
 * Finish changed Table structure
 
+v0.1.6
+------------------
+
+* Fixed ESLint errors
+* Formatting replaced tabs with spaces
+* Enabled LGTM integration
+* Button "back" on create.html to Default instead of Danger
+* Fix Codecov configuration
+
 v0.1.5
 ------------------
 
@@ -18,7 +27,7 @@ v0.1.5
 
 *Known Issues*:
 
-- Found design problem in current model Test Suites
+* Found design problem in current model Test Suites
 
 v0.1.4
 ------------------

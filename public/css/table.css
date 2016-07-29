@@ -36,12 +36,12 @@ nav {
 	color:white;
 	border-radius: 10px;
 	vertical-align: top;
-	line-height: 50px;	
+	line-height: 50px;
 }
 .win{
 	background-color: white;
 	background-image: url(../images/crown.png);
-	background-size: cover; 
+	background-size: cover;
 }
 .player-block:first-of-type{
 	margin-left: 0px;
