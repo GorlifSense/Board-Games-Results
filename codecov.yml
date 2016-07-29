@@ -1,6 +1,5 @@
 codecov:
   branch: master
-  bot: codecov-io
 
 coverage:
   precision: 2
