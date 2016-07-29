@@ -9,6 +9,9 @@ engines:
     enabled: true
   markdownlint:
     enabled: true
+    checks:
+      MD029:
+        enabled: false
   eslint:
     enabled: true
     channel: "eslint-2"
