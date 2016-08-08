@@ -3,14 +3,13 @@
 Saving your results for 7 Wonders games in a simple web based application
 
 [![Build Status](https://travis-ci.org/GorlifSense/Board-Games-Results.svg?branch=master)](https://travis-ci.org/GorlifSense/Board-Games-Results)
-[![bitHound Overall Score](https://www.bithound.io/github/GorlifSense/Board-Games-Results/badges/score.svg)](https://www.bithound.io/github/GorlifSense/Board-Games-Results)
-[![Issue Count](https://codeclimate.com/github/GorlifSense/Board-Games-Results/badges/issue_count.svg)](https://codeclimate.com/github/GorlifSense/Board-Games-Results)
 [![codecov](https://codecov.io/gh/GorlifSense/Board-Games-Results/branch/master/graph/badge.svg)](https://codecov.io/gh/GorlifSense/Board-Games-Results)
 [![Dependency Status](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572)
+[![NSP Status](https://nodesecurity.io/orgs/gorlifsense/projects/9e48a233-c94e-48bc-84a6-3cb12c3d1142/badge)](https://nodesecurity.io/orgs/gorlifsense/projects/9e48a233-c94e-48bc-84a6-3cb12c3d1142)
 
 ## Quickstart
 
-Set `MONGO` environment variable to access MongoDB.
+Set `MONGO` environment variable to access your MongoDB.
 Instead, default `mongodb://localhost/boardgamesresults` is used.
 
 `npm install`  
@@ -38,6 +37,9 @@ or `development`. We would like to follow here common practices
 [More on Github Flow…](https://guides.github.com/introduction/flow/)
 
 ### Code Quality
+
+[![bitHound Overall Score](https://www.bithound.io/github/GorlifSense/Board-Games-Results/badges/score.svg)](https://www.bithound.io/github/GorlifSense/Board-Games-Results)
+[![Issue Count](https://codeclimate.com/github/GorlifSense/Board-Games-Results/badges/issue_count.svg)](https://codeclimate.com/github/GorlifSense/Board-Games-Results)
 
 Use `.editorconfig` for your Code Editor to keep code style.  
 
