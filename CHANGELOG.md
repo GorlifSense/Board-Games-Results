@@ -7,6 +7,18 @@ Planned in next minor version
 * Support Angular2 app and remove @deprecated
 * Finish changed Table structure
 
+v0.1.8
+------------------
+
+* Enabled CORS
+* Autofix ESLint
+* Updated few devDependencies
+
+v0.1.7
+------------------
+
+* Timely fix for Heroku.
+
 v0.1.6
 ------------------
 
