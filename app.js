@@ -8,6 +8,7 @@ const Router = require('koa-router');
 const json = require('koa-json');
 const favicon = require('koa-favicon');
 const serve = require('koa-static');
+const cors = require('koa-cors');
 const koaBetterBody = require('koa-better-body');
 const compress = require('koa-compress');
 const Mongorito = require('mongorito');
@@ -27,6 +28,9 @@ app.use(logger());
 
 // use compression
 app.use(compress());
+
+// CORS
+app.use(cors());
 
 /**
  * response with static
