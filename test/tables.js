@@ -27,7 +27,7 @@ describe('Tables controller', () => {
 
   it('should createTable', function *test1() {
 
-    let generatedTable = tableGenerator();
+    const generatedTable = tableGenerator();
 
     // generatedTable._id = '5771ba42209301cc089f43dd';
     tables.body = generatedTable;
@@ -113,6 +113,7 @@ describe('Tables controller', () => {
 
     yield tables.getTables();
     const firstPlayer = tables.data[0].attributes.game.players[0];
+
     firstPlayer.situation.should.be.an('number');
     winston.debug('player 1 situation == ', firstPlayer.situation);
 

@@ -9,9 +9,9 @@ const response = {
 };
 
 // TODO change to more generic
-router.get('/', function* versionHint() {
+router.get('/', function *versionHint() {
 
-  response.message = 'Board-Games-Results API version ' + this.params.version;
+  response.message = `Board-Games-Results API version + ${this.params.version}`;
   this.body = response;
 
 });

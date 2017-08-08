@@ -61,7 +61,7 @@ api.use(json());
 router.use(koaBetterBody());
 
 // TODO change this to more general
-api.get('/', function* apiRoot() {
+api.get('/', function *apiRoot() {
   this.body = {
     success: true,
     status: 200,
