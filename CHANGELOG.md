@@ -7,6 +7,11 @@ Planned in next minor version
 * Support Angular2 app and remove @deprecated
 * Finish changed Table structure
 
+v0.1.9
+------------------
+
+* Added Dockerfile and docker-compose
+
 v0.1.8
 ------------------
 
