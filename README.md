@@ -30,7 +30,7 @@ Project has guidelines to follow.
 Be ready to check output of pre-commit hooks
 to keep consistency throughout all files.
 
-We have Continuos Deployment enabled and to avoid broken commits,
+We have Continuous Deployment enabled and to avoid broken commits,
 `master` branch will be frozen
 and all code should be committed to feature branches
 or `development`. We would like to follow here common practices
