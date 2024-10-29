@@ -5,7 +5,6 @@ Saving your results for 7 Wonders games in a simple web based application
 [![Build Status](https://travis-ci.org/GorlifSense/Board-Games-Results.svg?branch=master)](https://travis-ci.org/GorlifSense/Board-Games-Results)
 [![codecov](https://codecov.io/gh/GorlifSense/Board-Games-Results/branch/master/graph/badge.svg)](https://codecov.io/gh/GorlifSense/Board-Games-Results)
 [![Dependency Status](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5797b61474848d002b4b9572)
-[![NSP Status](https://nodesecurity.io/orgs/gorlifsense/projects/9e48a233-c94e-48bc-84a6-3cb12c3d1142/badge)](https://nodesecurity.io/orgs/gorlifsense/projects/9e48a233-c94e-48bc-84a6-3cb12c3d1142)
 
 ## Quickstart
 
@@ -30,7 +29,7 @@ Project has guidelines to follow.
 Be ready to check output of pre-commit hooks
 to keep consistency throughout all files.
 
-We have Continuos Deployment enabled and to avoid broken commits,
+We have Continuous Deployment enabled and to avoid broken commits,
 `master` branch will be frozen
 and all code should be committed to feature branches
 or `development`. We would like to follow here common practices
@@ -38,7 +37,6 @@ or `development`. We would like to follow here common practices
 
 ### Code Quality
 
-[![bitHound Overall Score](https://www.bithound.io/github/GorlifSense/Board-Games-Results/badges/score.svg)](https://www.bithound.io/github/GorlifSense/Board-Games-Results)
 [![Issue Count](https://codeclimate.com/github/GorlifSense/Board-Games-Results/badges/issue_count.svg)](https://codeclimate.com/github/GorlifSense/Board-Games-Results)
 
 Use `.editorconfig` for your Code Editor to keep code style.  
@@ -89,6 +87,10 @@ Look into `open coverage/lcov-report/index.html` to check coverage report
 6. Run static code analysis `npm run eslint`
 7. Push to the remote branch: `git push origin new-feature`
 8. Create a new [Pull Request](https://github.com/GorlifSense/Board-Games-Results/pull/new/master)
+
+### TODO 
+
+[ ] remove bitHound
 
 ## License
 

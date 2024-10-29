@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 'use strict';
 // NOTE this will be @deprecated after Angular 2 based SPA released
 
